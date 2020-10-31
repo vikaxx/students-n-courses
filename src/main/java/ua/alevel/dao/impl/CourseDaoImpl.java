@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ua.alevel.dao.CourseDao;
-import ua.alevel.dao.TableDao;
 import ua.alevel.datasource.DataSource;
 import ua.alevel.dto.Course;
 import ua.alevel.dto.additional.CourseWithStudentsAmount;
@@ -13,7 +12,6 @@ import ua.alevel.dto.additional.CourseWithStudentsAmount;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 @Component
@@ -159,7 +157,7 @@ public class CourseDaoImpl extends TableDaoImpl implements CourseDao {
         try (final Connection connection = dataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement("UPDATE course " +
                      "SET name=?, startDate=?, duration=?, " +
-                     "teacherId=?, themeId=? WHERE id=?;")) {
+                     "teacherId=?, themeId=? WHERE id=?")) {
 
             ps.setString(1, course.getName());
             java.sql.Date sqlDate = new java.sql.Date(course.getStartDate().getTime());

@@ -6,13 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ua.alevel.dao.TeacherDao;
 import ua.alevel.datasource.DataSource;
-import ua.alevel.dto.Course;
 import ua.alevel.dto.Teacher;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
 
 @Component
 public class TeacherDaoImpl implements TeacherDao {
