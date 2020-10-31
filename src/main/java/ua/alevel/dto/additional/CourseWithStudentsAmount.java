@@ -1,14 +1,15 @@
-package ua.alevel.dto;
+package ua.alevel.dto.additional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ua.alevel.dao.impl.TableDaoImpl;
+import ua.alevel.dto.Table;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
-public class Course implements Table {
+public class CourseWithStudentsAmount implements Table {
     private static final Logger LOG = LoggerFactory.getLogger(TableDaoImpl.class);
 
     private int id;
@@ -17,26 +18,7 @@ public class Course implements Table {
     private int duration;
     private int teacherId;
     private int themeId;
-
-    public Course() {
-    }
-
-    public Course(String name, Date startDate, int duration, int teacherId, int themeId) {
-        this.name = name;
-        this.startDate = startDate;
-        this.duration = duration;
-        this.teacherId = teacherId;
-        this.themeId = themeId;
-    }
-
-    public Course(int id, String name, Date startDate, int duration, int teacherId, int themeId) {
-        this.id = id;
-        this.name = name;
-        this.startDate = startDate;
-        this.duration = duration;
-        this.teacherId = teacherId;
-        this.themeId = themeId;
-    }
+    private int studentsAmount;
 
     public int getId() {
         return id;
@@ -86,9 +68,43 @@ public class Course implements Table {
         this.themeId = themeId;
     }
 
+    public int getStudentsAmount() {
+        return studentsAmount;
+    }
+
+    public void setStudentsAmount(int studentsAmount) {
+        this.studentsAmount = studentsAmount;
+    }
+
+    public CourseWithStudentsAmount(int id, String name, Date startDate, int duration, int teacherId, int themeId, int studentsAmount) {
+        this.id = id;
+        this.name = name;
+        this.startDate = startDate;
+        this.duration = duration;
+        this.teacherId = teacherId;
+        this.themeId = themeId;
+        this.studentsAmount = studentsAmount;
+    }
+
+    public CourseWithStudentsAmount() {
+    }
+
     @Override
-    public Course mapResultSetToTableObject(ResultSet resultSet) {
-        Course current = new Course();
+    public String toString() {
+        return "CourseWithStudentsAmount{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", startDate=" + startDate +
+                ", duration=" + duration +
+                ", teacherId=" + teacherId +
+                ", themeId=" + themeId +
+                ", studentsAmount=" + studentsAmount +
+                '}';
+    }
+
+    @Override
+    public CourseWithStudentsAmount mapResultSetToTableObject(ResultSet resultSet) {
+        CourseWithStudentsAmount current = new CourseWithStudentsAmount();
 
         try {
             current.setId(resultSet.getInt("id"));
@@ -97,22 +113,11 @@ public class Course implements Table {
             current.setDuration(resultSet.getInt("duration"));
             current.setTeacherId(resultSet.getInt("teacherId"));
             current.setThemeId(resultSet.getInt("themeId"));
+            current.setStudentsAmount(resultSet.getInt("quantity_students"));
         } catch (SQLException e) {
             LOG.error("SQL error: ", e);
         }
 
         return current;
-    }
-
-    @Override
-    public String toString() {
-        return "Course{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", startDate=" + startDate +
-                ", duration=" + duration +
-                ", teacherId=" + teacherId +
-                ", themeId=" + themeId +
-                '}';
     }
 }

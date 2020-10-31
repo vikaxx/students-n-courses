@@ -1,19 +1,37 @@
 package ua.alevel.dao;
 
 import ua.alevel.dto.Course;
+import ua.alevel.dto.additional.CourseWithStudentsAmount;
 
 import java.util.List;
 
 public interface CourseDao {
+
+    List<Course> selectAllCourses();
+
     List<Course> selectAllCoursesAZ();
 
     List<Course> selectAllCoursesZA();
 
-    List<Course> selectCoursesByDuration(int duration);
+    List<Course> selectCoursesSortedByDuration(String orderByDirection);
 
-    List<Course> selectCoursesByStudentsQuantity(int quantity);
+    List<CourseWithStudentsAmount> selectCoursesSortedByStudentsQuantity(String orderByDirection);
 
     List<Course> selectCoursesByTheme(String theme);
 
     List<Course> selectCoursesByTeacher(int teacherId);
+
+    boolean addNewCourse(Course newCourse);
+
+    boolean updateCourse(Course course);
+
+    Course deleteCourse(int courseId);
+
+    boolean putTeacherToCourse(int teacherId, int courseId);
+
+    List<Course> selectNotStartedCoursesByStudent(int studentId);
+
+    List<Course> selectStartedCoursesByStudent(int studentId);
+
+    List<Course> selectEndedCoursesByStudent(int studentId);
 }

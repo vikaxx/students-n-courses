@@ -6,15 +6,6 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import ua.alevel.dao.AdminDao;
-import ua.alevel.dto.*;
-import ua.alevel.services.AdminService;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 @SpringBootApplication
 public class Main {
@@ -24,7 +15,7 @@ public class Main {
         final ConfigurableApplicationContext context = SpringApplication.run(Main.class, args);
         final ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
 
-        AdminService adminService = beanFactory.getBean(AdminService.class);
+//        AdminService adminService = beanFactory.getBean(AdminService.class);
 
 //        List<Table> courses = adminService.<Teacher>selectAllRecordsInTable("Teacher");
 //        courses.forEach(System.out::println);
@@ -36,8 +27,10 @@ public class Main {
 //            LOG.error("data exception", e);
 //        }
 //        Course course = new Course(6,"C++ 23", date, 3, 4, 2);
-        System.out.println(adminService.setStudentBanned(5, false));
-        System.out.println(adminService.setStudentBanned(6, false));
+//        System.out.println(adminService.setStudentBanned(5, false));
+//        System.out.println(adminService.setStudentBanned(6, false));
+
+//        CourseService courseService = beanFactory.getBean(CourseService.class);
 
 
     }
