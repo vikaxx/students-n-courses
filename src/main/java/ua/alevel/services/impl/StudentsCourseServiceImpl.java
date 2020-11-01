@@ -13,6 +13,8 @@ public class StudentsCourseServiceImpl implements StudentsCourseService {
 
     @Override
     public boolean addStudentToCourse(StudentsCourse studentsCourse) {
-        return studentsCourseDao.addStudentToCourse(studentsCourse);
+        if (studentsCourse != null)
+                return studentsCourseDao.addStudentToCourse(studentsCourse);
+            else return false;
     }
 }

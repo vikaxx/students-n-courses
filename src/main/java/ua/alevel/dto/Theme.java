@@ -34,9 +34,11 @@ public class Theme implements Table {
     }
 
     public void setName(String name) {
-        if (!name.isEmpty() && name != null)
-            this.name = name;
-        else LOG.warn("Incorrect value Theme.name");
+        if (name != null) {
+            if (!name.isEmpty())
+                this.name = name;
+            else LOG.warn("Incorrect value Theme.name");
+        } else LOG.warn("Null value Theme.name");
     }
 
     @Override

@@ -13,6 +13,9 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public boolean addNewTeacher(Teacher newTeacher) {
-        return teacherDao.addNewTeacher(newTeacher);
+        if (newTeacher != null)
+            if (newTeacher.getFirstName() != null && newTeacher.getLastName() != null)
+                return teacherDao.addNewTeacher(newTeacher);
+        return false;
     }
 }

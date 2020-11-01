@@ -36,9 +36,11 @@ public class Teacher implements Table {
     }
 
     public void setFirstName(String firstName) {
-        if (!firstName.isEmpty() && firstName != null)
-            this.firstName = firstName;
-        else LOG.warn("Incorrect value Teacher.firstName");
+        if (firstName != null) {
+            if (!firstName.isEmpty())
+                this.firstName = firstName;
+            else LOG.warn("Incorrect value Teacher.firstName");
+        } else LOG.warn("Null value Teacher.firstName");
     }
 
     public String getLastName() {
@@ -46,9 +48,11 @@ public class Teacher implements Table {
     }
 
     public void setLastName(String lastName) {
-        if (!lastName.isEmpty() && lastName != null)
-            this.lastName = lastName;
-        else LOG.warn("Incorrect value Teacher.lastName");
+        if (lastName != null) {
+            if (!lastName.isEmpty())
+                this.lastName = lastName;
+            else LOG.warn("Incorrect value Teacher.lastName");
+        } else LOG.warn("Null value Teacher.lastName");
     }
 
     @Override

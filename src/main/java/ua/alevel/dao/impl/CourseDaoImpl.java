@@ -242,9 +242,13 @@ public class CourseDaoImpl extends TableDaoImpl implements CourseDao {
         List<Course> courses = selectAllCoursesByStudent(studentId);
         List<Course> result = new ArrayList<>();
         java.util.Date date = new java.util.Date();
+        Calendar today = Calendar.getInstance();
+        today.setTime(date);
 
         for (Course current : courses) {
-            if (current.getStartDate().after(date)) {
+            Calendar courseStartDate = Calendar.getInstance();
+            courseStartDate.setTime(current.getStartDate());
+            if (courseStartDate.after(today)) {
                 result.add(current);
             }
         }
@@ -254,6 +258,8 @@ public class CourseDaoImpl extends TableDaoImpl implements CourseDao {
     @Override
     public List<Course> selectStartedCoursesByStudent(int studentId) {
         List<Course> courses = selectAllCoursesByStudent(studentId);
+        List<Course> notStarted = selectNotStartedCoursesByStudent(studentId);
+        courses.removeAll(notStarted);
         List<Course> result = new ArrayList<>();
         java.util.Date date = new java.util.Date();
         Calendar today = Calendar.getInstance();
@@ -262,9 +268,13 @@ public class CourseDaoImpl extends TableDaoImpl implements CourseDao {
         for (Course current : courses) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(current.getStartDate());
+
             calendar.roll(Calendar.MONTH, current.getDuration());
-            if (today.before(calendar)) {
-                result.add(current);
+            if (calendar.get(Calendar.MONTH) < current.getDuration()) {
+                calendar.roll(Calendar.YEAR, current.getDuration() / 12 + 1);
+            }
+            if (today.after(calendar)) {
+                    result.add(current);
             }
         }
         return result;
@@ -273,19 +283,12 @@ public class CourseDaoImpl extends TableDaoImpl implements CourseDao {
     @Override
     public List<Course> selectEndedCoursesByStudent(int studentId) {
         List<Course> courses = selectAllCoursesByStudent(studentId);
-        List<Course> result = new ArrayList<>();
-        java.util.Date date = new java.util.Date();
-        Calendar today = Calendar.getInstance();
-        today.setTime(date);
+        List<Course> notStarted = selectNotStartedCoursesByStudent(studentId);
+        List<Course> started = selectStartedCoursesByStudent(studentId);
 
-        for (Course current : courses) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(current.getStartDate());
-            calendar.roll(Calendar.MONTH, current.getDuration());
-            if (today.after(calendar)) {
-                result.add(current);
-            }
-        }
-        return result;
+        courses.removeAll(notStarted);
+        courses.removeAll(started);
+
+        return courses;
     }
 }

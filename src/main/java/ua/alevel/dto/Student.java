@@ -29,7 +29,7 @@ public class Student implements Table {
 
     public void setId(int id) {
         if (id > 0)
-        this.id = id;
+            this.id = id;
         else LOG.warn("Incorrect value Student.id");
     }
 
@@ -38,9 +38,11 @@ public class Student implements Table {
     }
 
     public void setFirstName(String firstName) {
-        if (!firstName.isEmpty() && firstName != null)
-        this.firstName = firstName;
-        else LOG.warn("Incorrect value Student.firstName");
+        if (firstName != null) {
+            if (!firstName.isEmpty())
+                this.firstName = firstName;
+            else LOG.warn("Incorrect value Student.firstName");
+        } else LOG.warn("Null value Student.firstName");
     }
 
     public String getLastName() {
@@ -48,9 +50,11 @@ public class Student implements Table {
     }
 
     public void setLastName(String lastName) {
-        if (!lastName.isEmpty() && lastName != null)
-            this.lastName = lastName;
-        else LOG.warn("Incorrect value Student.lastName");
+        if (lastName != null) {
+            if (!lastName.isEmpty())
+                this.lastName = lastName;
+            else LOG.warn("Incorrect value Student.lastName");
+        } else LOG.warn("Null value Student.lastName");
     }
 
     public boolean isBanned() {

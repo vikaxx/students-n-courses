@@ -16,16 +16,20 @@ public class GradeServiceImpl implements GradeService {
 
     @Override
     public boolean addGrade(Grade grade) {
-        if (grade.getMark() > -1 && grade.getMark() < 101)
-            return gradeDao.addGrade(grade);
-        else return false;
+        if (grade != null) {
+            if (grade.getMark() > -1 && grade.getMark() < 101)
+                return gradeDao.addGrade(grade);
+        }
+        return false;
     }
 
     @Override
     public boolean updateGrade(Grade newGrade) {
-        if (newGrade.getMark() > -1 && newGrade.getMark() < 101)
-            return gradeDao.updateGrade(newGrade);
-        else return false;
+        if (newGrade != null) {
+            if (newGrade.getMark() > -1 && newGrade.getMark() < 101)
+                return gradeDao.updateGrade(newGrade);
+        }
+        return false;
     }
 
     @Override

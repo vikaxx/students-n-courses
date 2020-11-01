@@ -44,9 +44,11 @@ public class Course implements Table {
     }
 
     public void setName(String name) {
-        if (!name.isEmpty() && name != null)
-            this.name = name;
-        else LOG.warn("Incorrect value Course.name");
+        if (name != null) {
+            if (!name.isEmpty())
+                this.name = name;
+            else LOG.warn("Incorrect value Course.name");
+        } else LOG.warn("Null value Course.name");
     }
 
     public Date getStartDate() {
@@ -56,7 +58,7 @@ public class Course implements Table {
     public void setStartDate(Date startDate) {
         if (startDate != null)
             this.startDate = startDate;
-        else LOG.warn("Incorrect value Course.startDate");
+        else LOG.warn("Null value Course.startDate");
     }
 
     public int getDuration() {

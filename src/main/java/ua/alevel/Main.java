@@ -6,6 +6,13 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import ua.alevel.dto.Course;
+import ua.alevel.dto.Teacher;
+import ua.alevel.services.CourseService;
+import ua.alevel.services.GradeService;
+import ua.alevel.services.TeacherService;
+
+import java.util.Date;
 
 @SpringBootApplication
 public class Main {
@@ -15,22 +22,24 @@ public class Main {
         final ConfigurableApplicationContext context = SpringApplication.run(Main.class, args);
         final ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
 
-//        AdminService adminService = beanFactory.getBean(AdminService.class);
+//        TeacherService teacherService = beanFactory.getBean(TeacherService.class);
+//
+//        Teacher teacher = new Teacher("Max", "Max");
+//
+//        System.out.println(teacher);
+//
+//        System.out.println(teacherService.addNewTeacher(teacher));
 
-//        List<Table> courses = adminService.<Teacher>selectAllRecordsInTable("Teacher");
-//        courses.forEach(System.out::println);
+        /*   разобраться почему некорректно показывает   */
 
-//        Date date = new Date();
-//        try {
-//            date = new SimpleDateFormat("yyyy-MM-dd").parse("2022-3-4");
-//        } catch (ParseException e) {
-//            LOG.error("data exception", e);
-//        }
-//        Course course = new Course(6,"C++ 23", date, 3, 4, 2);
-//        System.out.println(adminService.setStudentBanned(5, false));
-//        System.out.println(adminService.setStudentBanned(6, false));
+        CourseService courseService = beanFactory.getBean(CourseService.class);
 
-//        CourseService courseService = beanFactory.getBean(CourseService.class);
+        System.out.println();
+        System.out.println(courseService.selectNotStartedCoursesByStudent(1));
+        System.out.println();
+        System.out.println(courseService.selectStartedCoursesByStudent(1));
+        System.out.println();
+        System.out.println(courseService.selectEndedCoursesByStudent(1));
 
 
     }

@@ -31,23 +31,30 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public List<Course> selectCoursesSortedByDuration(String orderByDirection) {
-        orderByDirection = orderByDirection.toUpperCase();
-        if (orderByDirection.equals("ASC") || orderByDirection.equals("DESC"))
-            return courseDao.selectCoursesSortedByDuration(orderByDirection);
-        else return null;
+        if (orderByDirection != null) {
+            orderByDirection = orderByDirection.toUpperCase();
+            if (orderByDirection.equals("ASC") || orderByDirection.equals("DESC"))
+                return courseDao.selectCoursesSortedByDuration(orderByDirection);
+        }
+        return null;
     }
 
     @Override
     public List<CourseWithStudentsAmount> selectCoursesSortedByStudentsQuantity(String orderByDirection) {
-        orderByDirection = orderByDirection.toUpperCase();
-        if (orderByDirection.equals("ASC") || orderByDirection.equals("DESC"))
-            return courseDao.selectCoursesSortedByStudentsQuantity(orderByDirection);
-        else return null;
+        if (orderByDirection != null) {
+            orderByDirection = orderByDirection.toUpperCase();
+            if (orderByDirection.equals("ASC") || orderByDirection.equals("DESC"))
+                return courseDao.selectCoursesSortedByStudentsQuantity(orderByDirection);
+        }
+        return null;
     }
 
     @Override
     public List<Course> selectCoursesByTheme(String theme) {
-        return courseDao.selectCoursesByTheme(theme);
+        if (theme != null)
+            if (!theme.isEmpty())
+                return courseDao.selectCoursesByTheme(theme);
+        return null;
     }
 
     @Override
@@ -59,17 +66,25 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public boolean addNewCourse(Course newCourse) {
-        return courseDao.addNewCourse(newCourse);
+        if (newCourse != null)
+            if (newCourse.getName() != null && newCourse.getStartDate() != null)
+                return courseDao.addNewCourse(newCourse);
+        return false;
     }
 
     @Override
     public boolean updateCourse(Course course) {
-        return courseDao.updateCourse(course);
+        if (course != null)
+            if (course.getName() != null && course.getStartDate() != null)
+                return courseDao.updateCourse(course);
+        return false;
     }
 
     @Override
     public Course deleteCourse(int courseId) {
-        return courseDao.deleteCourse(courseId);
+        if (courseId > 0)
+            return courseDao.deleteCourse(courseId);
+        else return null;
     }
 
     @Override
