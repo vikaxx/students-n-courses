@@ -240,27 +240,9 @@ public class CourseDaoImpl extends TableDaoImpl implements CourseDao {
     @Override
     public List<Course> selectNotStartedCoursesByStudent(int studentId) {
         List<Course> courses = selectAllCoursesByStudent(studentId);
-        List<Course> result = new ArrayList<>();
-        java.util.Date date = new java.util.Date();
-        Calendar today = Calendar.getInstance();
-        today.setTime(date);
-
-        for (Course current : courses) {
-            Calendar courseStartDate = Calendar.getInstance();
-            courseStartDate.setTime(current.getStartDate());
-            if (courseStartDate.after(today)) {
-                result.add(current);
-            }
-        }
-        return result;
-    }
-
-    @Override
-    public List<Course> selectStartedCoursesByStudent(int studentId) {
-        List<Course> courses = selectAllCoursesByStudent(studentId);
-        List<Course> notStarted = selectNotStartedCoursesByStudent(studentId);
-        courses.removeAll(notStarted);
-        List<Course> result = new ArrayList<>();
+        List<Course> notStarted = new ArrayList<>();
+//        List<Course> started = new ArrayList<>();
+//        List<Course> ended = new ArrayList<>();
         java.util.Date date = new java.util.Date();
         Calendar today = Calendar.getInstance();
         today.setTime(date);
@@ -268,27 +250,76 @@ public class CourseDaoImpl extends TableDaoImpl implements CourseDao {
         for (Course current : courses) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(current.getStartDate());
-
-            calendar.roll(Calendar.MONTH, current.getDuration());
-            if (calendar.get(Calendar.MONTH) < current.getDuration()) {
-                calendar.roll(Calendar.YEAR, current.getDuration() / 12 + 1);
+            if (calendar.after(today)) { // не начался
+                notStarted.add(current);
             }
-            if (today.after(calendar)) {
-                    result.add(current);
+//            else {
+//                calendar.roll(Calendar.MONTH, current.getDuration());
+//                if (calendar.get(Calendar.MONTH) < current.getDuration()) {
+//                    calendar.roll(Calendar.YEAR, current.getDuration() / 12 + 1);
+//                }
+//                if (today.after(calendar)) { // начался
+//                    started.add(current);
+//                } else ended.add(current); // закончился
+//            }
+        }
+
+//        System.out.println(notStarted);
+//        System.out.println(started);
+//        System.out.println(ended);
+
+        return notStarted;
+    }
+
+    @Override
+    public List<Course> selectStartedCoursesByStudent(int studentId) {
+        List<Course> courses = selectAllCoursesByStudent(studentId);
+        List<Course> started = new ArrayList<>();
+
+        java.util.Date date = new java.util.Date();
+        Calendar today = Calendar.getInstance();
+        today.setTime(date);
+
+        for (Course current : courses) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(current.getStartDate());
+            if (calendar.after(today)) {
+            } else {
+                calendar.roll(Calendar.MONTH, current.getDuration());
+                if (calendar.get(Calendar.MONTH) < current.getDuration()) {
+                    calendar.roll(Calendar.YEAR, current.getDuration() / 12 + 1);
+                }
+                if (today.after(calendar)) {
+                    started.add(current);
+                }
             }
         }
-        return result;
+        return started;
     }
 
     @Override
     public List<Course> selectEndedCoursesByStudent(int studentId) {
         List<Course> courses = selectAllCoursesByStudent(studentId);
-        List<Course> notStarted = selectNotStartedCoursesByStudent(studentId);
-        List<Course> started = selectStartedCoursesByStudent(studentId);
+        List<Course> ended = new ArrayList<>();
 
-        courses.removeAll(notStarted);
-        courses.removeAll(started);
+        java.util.Date date = new java.util.Date();
+        Calendar today = Calendar.getInstance();
+        today.setTime(date);
 
-        return courses;
+        for (Course current : courses) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(current.getStartDate());
+            if (calendar.after(today)) { // не начался
+            } else {
+                calendar.roll(Calendar.MONTH, current.getDuration());
+                if (calendar.get(Calendar.MONTH) < current.getDuration()) {
+                    calendar.roll(Calendar.YEAR, current.getDuration() / 12 + 1);
+                }
+                if (today.after(calendar)) { // начался
+                } else ended.add(current); // закончился
+            }
+        }
+
+        return ended;
     }
 }
