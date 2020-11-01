@@ -22,20 +22,11 @@ public class Course implements Table {
     }
 
     public Course(String name, Date startDate, int duration, int teacherId, int themeId) {
-        this.name = name;
-        this.startDate = startDate;
-        this.duration = duration;
-        this.teacherId = teacherId;
-        this.themeId = themeId;
-    }
-
-    public Course(int id, String name, Date startDate, int duration, int teacherId, int themeId) {
-        this.id = id;
-        this.name = name;
-        this.startDate = startDate;
-        this.duration = duration;
-        this.teacherId = teacherId;
-        this.themeId = themeId;
+        this.setName(name);
+        this.setStartDate(startDate);
+        this.setDuration(duration);
+        this.setTeacherId(teacherId);
+        this.setThemeId(themeId);
     }
 
     public int getId() {
@@ -43,7 +34,9 @@ public class Course implements Table {
     }
 
     public void setId(int id) {
-        this.id = id;
+        if (id > 0)
+            this.id = id;
+        else LOG.warn("Incorrect value Course.id");
     }
 
     public String getName() {
@@ -51,7 +44,9 @@ public class Course implements Table {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (!name.isEmpty() && name != null)
+            this.name = name;
+        else LOG.warn("Incorrect value Course.name");
     }
 
     public Date getStartDate() {
@@ -59,7 +54,9 @@ public class Course implements Table {
     }
 
     public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+        if (startDate != null)
+            this.startDate = startDate;
+        else LOG.warn("Incorrect value Course.startDate");
     }
 
     public int getDuration() {
@@ -67,7 +64,9 @@ public class Course implements Table {
     }
 
     public void setDuration(int duration) {
-        this.duration = duration;
+        if (duration > 0)
+            this.duration = duration;
+        else LOG.warn("Incorrect value Course.duration");
     }
 
     public int getTeacherId() {
@@ -75,7 +74,9 @@ public class Course implements Table {
     }
 
     public void setTeacherId(int teacherId) {
-        this.teacherId = teacherId;
+        if (teacherId > 0)
+            this.teacherId = teacherId;
+        else LOG.warn("Incorrect value Course.teacherId");
     }
 
     public int getThemeId() {
@@ -83,7 +84,9 @@ public class Course implements Table {
     }
 
     public void setThemeId(int themeId) {
-        this.themeId = themeId;
+        if (themeId > 0)
+            this.themeId = themeId;
+        else LOG.warn("Incorrect value Course.themeId");
     }
 
     @Override

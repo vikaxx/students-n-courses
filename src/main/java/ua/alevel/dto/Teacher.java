@@ -16,10 +16,9 @@ public class Teacher implements Table {
     public Teacher() {
     }
 
-    public Teacher(int id, String firstName, String lastName) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Teacher(String firstName, String lastName) {
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
     }
 
     public int getId() {
@@ -27,7 +26,9 @@ public class Teacher implements Table {
     }
 
     public void setId(int id) {
-        this.id = id;
+        if (id > 0)
+            this.id = id;
+        else LOG.warn("Incorrect value Teacher.id");
     }
 
     public String getFirstName() {
@@ -35,7 +36,9 @@ public class Teacher implements Table {
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        if (!firstName.isEmpty() && firstName != null)
+            this.firstName = firstName;
+        else LOG.warn("Incorrect value Teacher.firstName");
     }
 
     public String getLastName() {
@@ -43,7 +46,9 @@ public class Teacher implements Table {
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        if (!lastName.isEmpty() && lastName != null)
+            this.lastName = lastName;
+        else LOG.warn("Incorrect value Teacher.lastName");
     }
 
     @Override

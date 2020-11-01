@@ -10,16 +10,15 @@ public class Grade implements Table {
     private static final Logger LOG = LoggerFactory.getLogger(Grade.class);
 
     private int id;
-    private int mark;
+    private int mark;  //////// only from 0 to 100
     private int studentsCourseId;
 
     public Grade() {
     }
 
-    public Grade(int id, int mark, int studentsCourseId) {
-        this.id = id;
-        this.mark = mark;
-        this.studentsCourseId = studentsCourseId;
+    public Grade(int mark, int studentsCourseId) {
+        this.setMark(mark);
+        this.setStudentsCourseId(studentsCourseId);
     }
 
     public int getId() {
@@ -27,7 +26,9 @@ public class Grade implements Table {
     }
 
     public void setId(int id) {
+        if (id > 0)
         this.id = id;
+        else LOG.warn("Incorrect value Grade.id");
     }
 
     public int getMark() {
@@ -35,7 +36,9 @@ public class Grade implements Table {
     }
 
     public void setMark(int mark) {
+        if (mark > -1 && mark < 101)
         this.mark = mark;
+        else LOG.warn("Incorrect value Grade.mark");
     }
 
     public int getStudentsCourseId() {
@@ -43,7 +46,9 @@ public class Grade implements Table {
     }
 
     public void setStudentsCourseId(int studentsCourseId) {
+        if (studentsCourseId > 0)
         this.studentsCourseId = studentsCourseId;
+        else LOG.warn("Incorrect value Grade.studentsCourseId");
     }
 
     @Override

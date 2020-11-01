@@ -10,18 +10,15 @@ public class StudentsCourse implements Table {
     private static final Logger LOG = LoggerFactory.getLogger(StudentsCourse.class);
 
     private int id;
-    private String status;
     private int studentId;
     private int courseId;
 
     public StudentsCourse() {
     }
 
-    public StudentsCourse(int id, String status, int studentId, int courseId) {
-        this.id = id;
-        this.status = status;
-        this.studentId = studentId;
-        this.courseId = courseId;
+    public StudentsCourse(int studentId, int courseId) {
+        this.setStudentId(studentId);
+        this.setCourseId(courseId);
     }
 
     public int getId() {
@@ -29,15 +26,9 @@ public class StudentsCourse implements Table {
     }
 
     public void setId(int id) {
+        if (id > 0)
         this.id = id;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+        else LOG.warn("Incorrect value StudentsCourse.id");
     }
 
     public int getStudentId() {
@@ -45,7 +36,9 @@ public class StudentsCourse implements Table {
     }
 
     public void setStudentId(int studentId) {
+        if (studentId > 0)
         this.studentId = studentId;
+        else LOG.warn("Incorrect value StudentsCourse.studentId");
     }
 
     public int getCourseId() {
@@ -53,7 +46,9 @@ public class StudentsCourse implements Table {
     }
 
     public void setCourseId(int courseId) {
+        if (courseId > 0)
         this.courseId = courseId;
+        else LOG.warn("Incorrect value StudentsCourse.courseId");
     }
 
     @Override
@@ -63,7 +58,6 @@ public class StudentsCourse implements Table {
         try {
             current.setId(resultSet.getInt("id"));
             current.setCourseId(resultSet.getInt("courseId"));
-            current.setStatus(resultSet.getString("status"));
             current.setStudentId(resultSet.getInt("studentId"));
         } catch (SQLException e) {
             LOG.error("SQL error: ", e);
@@ -76,7 +70,6 @@ public class StudentsCourse implements Table {
     public String toString() {
         return "StudentsCourse{" +
                 "id=" + id +
-                ", status='" + status + '\'' +
                 ", studentId=" + studentId +
                 ", courseId=" + courseId +
                 '}';

@@ -22,10 +22,20 @@ public class GradesInTeacherCourses implements Table {
     private String lastName;
     private boolean isBanned;
 
+    private int mark;
+
+    public int getMark() {
+        return mark;
+    }
+
+    public void setMark(int mark) {
+        this.mark = mark;
+    }
+
     public GradesInTeacherCourses() {
     }
 
-    public GradesInTeacherCourses(String courseName, Date startDate, int duration, int teacherId, int themeId, String firstName, String lastName, boolean isBanned) {
+    public GradesInTeacherCourses(String courseName, Date startDate, int duration, int teacherId, int themeId, String firstName, String lastName, boolean isBanned, int mark) {
         this.courseName = courseName;
         this.startDate = startDate;
         this.duration = duration;
@@ -34,6 +44,7 @@ public class GradesInTeacherCourses implements Table {
         this.firstName = firstName;
         this.lastName = lastName;
         this.isBanned = isBanned;
+        this.mark = mark;
     }
 
     public String getCourseName() {
@@ -114,6 +125,8 @@ public class GradesInTeacherCourses implements Table {
             current.setFirstName(resultSet.getString("firstName"));
             current.setLastName(resultSet.getString("lastName"));
             current.setBanned(resultSet.getBoolean("isBanned"));
+
+            current.setMark(resultSet.getInt("mark"));
         } catch (SQLException e) {
             LOG.error("SQL error: ", e);
         }
@@ -132,6 +145,7 @@ public class GradesInTeacherCourses implements Table {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", isBanned=" + isBanned +
+                ", mark=" + mark +
                 '}';
     }
 }

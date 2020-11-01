@@ -15,9 +15,8 @@ public class Theme implements Table {
     public Theme() {
     }
 
-    public Theme(int id, String name) {
-        this.id = id;
-        this.name = name;
+    public Theme(String name) {
+        this.setName(name);
     }
 
     public int getId() {
@@ -25,7 +24,9 @@ public class Theme implements Table {
     }
 
     public void setId(int id) {
-        this.id = id;
+        if (id > 0)
+            this.id = id;
+        else LOG.warn("Incorrect value Theme.id");
     }
 
     public String getName() {
@@ -33,7 +34,9 @@ public class Theme implements Table {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (!name.isEmpty() && name != null)
+            this.name = name;
+        else LOG.warn("Incorrect value Theme.name");
     }
 
     @Override

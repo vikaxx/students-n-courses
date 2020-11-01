@@ -17,11 +17,10 @@ public class Student implements Table {
     public Student() {
     }
 
-    public Student(int id, String firstName, String lastName, boolean isBanned) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.isBanned = isBanned;
+    public Student(String firstName, String lastName, boolean isBanned) {
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
+        this.setBanned(isBanned);
     }
 
     public int getId() {
@@ -29,7 +28,9 @@ public class Student implements Table {
     }
 
     public void setId(int id) {
+        if (id > 0)
         this.id = id;
+        else LOG.warn("Incorrect value Student.id");
     }
 
     public String getFirstName() {
@@ -37,7 +38,9 @@ public class Student implements Table {
     }
 
     public void setFirstName(String firstName) {
+        if (!firstName.isEmpty() && firstName != null)
         this.firstName = firstName;
+        else LOG.warn("Incorrect value Student.firstName");
     }
 
     public String getLastName() {
@@ -45,7 +48,9 @@ public class Student implements Table {
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        if (!lastName.isEmpty() && lastName != null)
+            this.lastName = lastName;
+        else LOG.warn("Incorrect value Student.lastName");
     }
 
     public boolean isBanned() {
