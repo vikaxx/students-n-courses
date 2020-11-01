@@ -12,8 +12,8 @@ public class StudentsCourseServiceImpl implements StudentsCourseService {
     private StudentsCourseDao studentsCourseDao;
 
     @Override
-    public boolean addStudentToCourse(StudentsCourse studentsCourse) {
-        if (studentsCourse != null)
+    public boolean addStudentToCourse(StudentsCourse studentsCourse, boolean isBanned) {
+        if (studentsCourse != null && !isBanned)
                 return studentsCourseDao.addStudentToCourse(studentsCourse);
             else return false;
     }

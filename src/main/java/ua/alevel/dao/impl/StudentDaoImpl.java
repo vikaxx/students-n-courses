@@ -6,10 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ua.alevel.dao.StudentDao;
 import ua.alevel.datasource.DataSource;
+import ua.alevel.dto.Course;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class StudentDaoImpl implements StudentDao {
@@ -38,5 +42,22 @@ public class StudentDaoImpl implements StudentDao {
             LOG.error("SQL Error", e);
         }
         return false;
+    }
+
+    @Override
+    public boolean isStudentBanned(int studentId) {
+        boolean isBanned = false;
+        try (final Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement("SELECT isBanned FROM student where id = ?")) {
+            statement.setInt(1, studentId);
+            final ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                isBanned = resultSet.getBoolean("isBanned");
+            }
+        } catch (SQLException e) {
+            LOG.error("SQL error: ", e);
+        }
+        return isBanned;
     }
 }

@@ -7,10 +7,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import ua.alevel.dto.Course;
+import ua.alevel.dto.Grade;
+import ua.alevel.dto.StudentsCourse;
 import ua.alevel.dto.Teacher;
-import ua.alevel.services.CourseService;
-import ua.alevel.services.GradeService;
-import ua.alevel.services.TeacherService;
+import ua.alevel.services.*;
 
 import java.util.Date;
 
@@ -29,19 +29,6 @@ public class Main {
 //        System.out.println(teacher);
 //
 //        System.out.println(teacherService.addNewTeacher(teacher));
-
-        /*   разобраться почему некорректно показывает   */
-
-        CourseService courseService = beanFactory.getBean(CourseService.class);
-
-        System.out.println();
-        System.out.println(courseService.selectNotStartedCoursesByStudent(1));
-        System.out.println();
-        System.out.println(courseService.selectStartedCoursesByStudent(1));
-        System.out.println();
-        System.out.println(courseService.selectEndedCoursesByStudent(1));
-
-//        courseService.selectNotStartedCoursesByStudent(3);
-
+        
     }
 }

@@ -4,8 +4,20 @@
     <list default="true" id="34609e89-de51-4022-901a-5b737aca301d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ua/alevel/Main.java" afterPath="$PROJECT_DIR$/src/main/java/ua/alevel/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/CourseDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/CourseDaoImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/alevel/dao/StudentDao.java" afterPath="$PROJECT_DIR$/src/main/java/ua/alevel/dao/StudentDao.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/StudentDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/StudentDaoImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/alevel/services/StudentService.java" afterPath="$PROJECT_DIR$/src/main/java/ua/alevel/services/StudentService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/alevel/services/StudentsCourseService.java" afterPath="$PROJECT_DIR$/src/main/java/ua/alevel/services/StudentsCourseService.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/StudentServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/StudentServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/StudentsCourseServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/StudentsCourseServiceImpl.java" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/alevel/Main.class" afterPath="$PROJECT_DIR$/target/classes/ua/alevel/Main.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/alevel/dao/StudentDao.class" afterPath="$PROJECT_DIR$/target/classes/ua/alevel/dao/StudentDao.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/ua/alevel/dao/impl/CourseDaoImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/alevel/dao/impl/CourseDaoImpl.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/alevel/dao/impl/StudentDaoImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/alevel/dao/impl/StudentDaoImpl.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/alevel/services/StudentService.class" afterPath="$PROJECT_DIR$/target/classes/ua/alevel/services/StudentService.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/alevel/services/StudentsCourseService.class" afterPath="$PROJECT_DIR$/target/classes/ua/alevel/services/StudentsCourseService.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/alevel/services/impl/StudentServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/alevel/services/impl/StudentServiceImpl.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ua/alevel/services/impl/StudentsCourseServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/ua/alevel/services/impl/StudentsCourseServiceImpl.class" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -18,26 +30,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="CourseDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/CourseDaoImpl.java">
+      <file leaf-file-name="StudentsCourseServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/StudentsCourseServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-95">
-              <caret line="304" column="8" lean-forward="false" selection-start-line="304" selection-start-column="8" selection-end-line="304" selection-end-column="8" />
+            <state relative-caret-position="323">
+              <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#CourseDaoImpl#1;class#CourseDaoImpl#0" expanded="false" />
-                <element signature="method#selectAllCoursesWithOrder#0;class#CourseDaoImpl#0" expanded="false" />
-                <element signature="method#selectCoursesSortedByDuration#0;class#CourseDaoImpl#0" expanded="false" />
-                <element signature="method#selectCoursesSortedByStudentsQuantity#0;class#CourseDaoImpl#0" expanded="false" />
-                <element signature="method#selectCoursesByTheme#0;class#CourseDaoImpl#0" expanded="false" />
-                <element signature="method#selectCoursesByTeacher#0;class#CourseDaoImpl#0" expanded="false" />
-                <element signature="method#addNewCourse#0;class#CourseDaoImpl#0" expanded="false" />
-                <element signature="method#deleteCourse#0;class#CourseDaoImpl#0" expanded="false" />
-                <element signature="method#putTeacherToCourse#0;class#CourseDaoImpl#0" expanded="false" />
-                <element signature="e#9387#9438#0" expanded="false" />
-                <element signature="e#9881#9901#0" expanded="false" />
-                <element signature="e#10344#10385#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/services/StudentService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="43" lean-forward="true" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentsCourseDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/StudentsCourseDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="28" column="69" lean-forward="true" selection-start-line="28" selection-start-column="69" selection-end-line="28" selection-end-column="69" />
+              <folding>
+                <element signature="method#StudentsCourseDaoImpl#1;class#StudentsCourseDaoImpl#0" expanded="false" />
+                <element signature="method#addStudentToCourse#0;class#StudentsCourseDaoImpl#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentsCourseService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/services/StudentsCourseService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="79" lean-forward="false" selection-start-line="5" selection-start-column="79" selection-end-line="5" selection-end-column="79" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -45,11 +78,21 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="43" column="52" lean-forward="false" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
+            <state relative-caret-position="171">
+              <caret line="31" column="8" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
               <folding>
-                <element signature="e#898#982#0" expanded="false" />
+                <element signature="e#869#953#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/StudentDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="684">
+              <caret line="60" column="24" lean-forward="true" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -101,20 +144,15 @@
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dao/StudentsCourseDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dao/TableDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dao/GradeDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/StudentDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/GradeDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/TeacherDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dao/StudentDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dao/TeacherDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dto/additional/GradesInTeacherCourses.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/StrudentServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/StudentCourseServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/services/CourseService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/services/GradeService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/alevel/services/StudentsCourseService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/alevel/services/StudentService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/services/TeacherService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/StudentServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dto/Grade.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dto/StudentsCourse.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/GradeServiceImpl.java" />
@@ -124,11 +162,16 @@
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dto/Teacher.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dto/Theme.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dto/Student.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/StudentsCourseServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dto/Course.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/CourseServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/alevel/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/CourseDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/alevel/services/StudentService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/StudentServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dao/StudentDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/StudentDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/StudentsCourseServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/alevel/services/StudentsCourseService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/alevel/Main.java" />
       </list>
     </option>
   </component>
@@ -418,6 +461,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1386" height="738" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -427,7 +471,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294509" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294509" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -467,7 +511,6 @@
             <element signature="method#selectAllCoursesWithOrder#0;class#CourseDaoImpl#0" expanded="false" />
             <element signature="method#selectCoursesSortedByDuration#0;class#CourseDaoImpl#0" expanded="false" />
             <element signature="method#selectCoursesSortedByStudentsQuantity#0;class#CourseDaoImpl#0" expanded="false" />
-            <element signature="method#selectCoursesByTheme#0;class#CourseDaoImpl#0" expanded="false" />
             <element signature="method#selectCoursesByTeacher#0;class#CourseDaoImpl#0" expanded="false" />
             <element signature="method#addNewCourse#0;class#CourseDaoImpl#0" expanded="false" />
             <element signature="method#deleteCourse#0;class#CourseDaoImpl#0" expanded="false" />
@@ -484,7 +527,7 @@
         <state relative-caret-position="779">
           <caret line="41" column="70" lean-forward="false" selection-start-line="41" selection-start-column="70" selection-end-line="41" selection-end-column="70" />
           <folding>
-            <element signature="e#898#982#0" expanded="false" />
+            <element signature="e#869#953#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -499,7 +542,6 @@
             <element signature="method#selectAllCoursesWithOrder#0;class#CourseDaoImpl#0" expanded="false" />
             <element signature="method#selectCoursesSortedByDuration#0;class#CourseDaoImpl#0" expanded="false" />
             <element signature="method#selectCoursesSortedByStudentsQuantity#0;class#CourseDaoImpl#0" expanded="false" />
-            <element signature="method#selectCoursesByTheme#0;class#CourseDaoImpl#0" expanded="false" />
             <element signature="method#selectCoursesByTeacher#0;class#CourseDaoImpl#0" expanded="false" />
             <element signature="method#addNewCourse#0;class#CourseDaoImpl#0" expanded="false" />
             <element signature="method#deleteCourse#0;class#CourseDaoImpl#0" expanded="false" />
@@ -579,30 +621,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/AdminServiceImpl.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/services/AdminServiceImpl.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/services/AdminService.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/StudentDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#673#674#0" expanded="false" />
-            <element signature="e#717#718#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/StudentsCourseDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="34" column="53" lean-forward="false" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#738#739#0" expanded="false" />
-            <element signature="e#782#783#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/TableDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -689,30 +707,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/services/StudentsCourseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="62" lean-forward="false" selection-start-line="5" selection-start-column="62" selection-end-line="5" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/dao/StudentDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/services/StudentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="60" lean-forward="false" selection-start-line="3" selection-start-column="60" selection-end-line="3" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/dao/TeacherDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -733,13 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -808,26 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/StudentServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/StudentsCourseServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="16" column="76" lean-forward="true" selection-start-line="16" selection-start-column="76" selection-end-line="16" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/GradeServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -854,6 +821,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1786">
           <caret line="130" column="13" lean-forward="false" selection-start-line="130" selection-start-column="13" selection-end-line="130" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -892,17 +860,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/StudentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="21" column="53" lean-forward="false" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+          <folding>
+            <element signature="e#615#616#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/dao/StudentDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="43" lean-forward="false" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/CourseDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-95">
-          <caret line="304" column="8" lean-forward="false" selection-start-line="304" selection-start-column="8" selection-end-line="304" selection-end-column="8" />
+        <state relative-caret-position="307">
+          <caret line="111" column="23" lean-forward="true" selection-start-line="98" selection-start-column="8" selection-end-line="111" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#CourseDaoImpl#1;class#CourseDaoImpl#0" expanded="false" />
             <element signature="method#selectAllCoursesWithOrder#0;class#CourseDaoImpl#0" expanded="false" />
             <element signature="method#selectCoursesSortedByDuration#0;class#CourseDaoImpl#0" expanded="false" />
             <element signature="method#selectCoursesSortedByStudentsQuantity#0;class#CourseDaoImpl#0" expanded="false" />
-            <element signature="method#selectCoursesByTheme#0;class#CourseDaoImpl#0" expanded="false" />
             <element signature="method#selectCoursesByTeacher#0;class#CourseDaoImpl#0" expanded="false" />
             <element signature="method#addNewCourse#0;class#CourseDaoImpl#0" expanded="false" />
             <element signature="method#deleteCourse#0;class#CourseDaoImpl#0" expanded="false" />
@@ -914,12 +900,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/StudentDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="60" column="24" lean-forward="true" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/services/StudentsCourseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="79" lean-forward="false" selection-start-line="5" selection-start-column="79" selection-end-line="5" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/services/StudentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="43" lean-forward="true" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/dao/impl/StudentsCourseDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="28" column="69" lean-forward="true" selection-start-line="28" selection-start-column="69" selection-end-line="28" selection-end-column="69" />
+          <folding>
+            <element signature="method#StudentsCourseDaoImpl#1;class#StudentsCourseDaoImpl#0" expanded="false" />
+            <element signature="method#addStudentToCourse#0;class#StudentsCourseDaoImpl#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/services/impl/StudentsCourseServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/alevel/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="43" column="52" lean-forward="false" selection-start-line="43" selection-start-column="52" selection-end-line="43" selection-end-column="52" />
+        <state relative-caret-position="171">
+          <caret line="31" column="8" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
           <folding>
-            <element signature="e#898#982#0" expanded="false" />
+            <element signature="e#869#953#0" expanded="false" />
           </folding>
         </state>
       </provider>

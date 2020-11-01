@@ -16,4 +16,9 @@ public class StudentServiceImpl implements StudentService {
             return studentDao.setStudentBanned(studentId, banned);
         else return false;
     }
+
+    @Override
+    public boolean isStudentBanned(int studentId) {
+        return studentDao.isStudentBanned(studentId);
+    }
 }
