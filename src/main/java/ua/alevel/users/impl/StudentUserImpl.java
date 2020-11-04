@@ -16,6 +16,15 @@ public class StudentUserImpl implements StudentUser {
 
     private int studentId;
 
+    public int getStudentId() {
+        return studentId;
+    }
+
+    @Override
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
     public StudentUserImpl() {
     }
 

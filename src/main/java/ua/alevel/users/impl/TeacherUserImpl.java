@@ -16,6 +16,11 @@ public class TeacherUserImpl implements TeacherUser {
 
     private int teacherId;
 
+    @Override
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
+    }
+
     public TeacherUserImpl() {
     }
 

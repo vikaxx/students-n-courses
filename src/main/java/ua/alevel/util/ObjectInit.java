@@ -3,6 +3,8 @@ package ua.alevel.util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ua.alevel.dto.Course;
+import ua.alevel.dto.Grade;
+import ua.alevel.dto.StudentsCourse;
 import ua.alevel.dto.Teacher;
 
 import java.io.BufferedReader;
@@ -112,4 +114,43 @@ public class ObjectInit {
 
         return course;
     }
+
+    public static Grade newGrade() {
+        Grade grade = new Grade();
+
+        try {
+            System.out.print("Input mark: ");
+            grade.setMark(Integer.parseInt(reader.readLine()));
+
+            System.out.print("Input student course id: ");
+            grade.setStudentsCourseId(Integer.parseInt(reader.readLine()));
+        } catch (IOException e) {
+            System.out.println("Incorrect values.");
+            return newGrade();
+        }
+
+        return grade;
+    }
+
+    public static Grade updateGrade() {
+        Grade grade = new Grade();
+
+        try {
+            System.out.print("Input id: ");
+            grade.setId(Integer.parseInt(reader.readLine()));
+
+            System.out.print("Input mark: ");
+            grade.setMark(Integer.parseInt(reader.readLine()));
+
+            System.out.print("Input student course id: ");
+            grade.setStudentsCourseId(Integer.parseInt(reader.readLine()));
+
+        } catch (IOException e) {
+            System.out.println("Incorrect values.");
+            return updateGrade();
+        }
+
+        return grade;
+    }
+
 }

@@ -8,6 +8,8 @@ public interface StudentUser {
 
     boolean goToNewCourse(int courseId);
 
+    void setStudentId(int studentId);
+
     List<Course> selectNotStartedCoursesByStudent();
 
     List<Course> selectStartedCoursesByStudent();

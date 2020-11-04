@@ -15,4 +15,7 @@ public interface TeacherUser {
     boolean updateGrade(Grade newGrade);
 
     List<GradesInTeacherCourses> selectAllGradesByCourseTeacher();
+
+    void setTeacherId(int teacherId);
+
 }

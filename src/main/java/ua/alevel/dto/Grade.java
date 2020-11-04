@@ -21,6 +21,12 @@ public class Grade implements Table {
         this.setStudentsCourseId(studentsCourseId);
     }
 
+    public Grade(int id, int mark, int studentsCourseId) {
+        this.setId(id);
+        this.setMark(mark);
+        this.setStudentsCourseId(studentsCourseId);
+    }
+
     public int getId() {
         return id;
     }
