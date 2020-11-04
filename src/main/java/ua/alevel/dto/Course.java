@@ -29,6 +29,15 @@ public class Course implements Table {
         this.setThemeId(themeId);
     }
 
+    public Course(int id, String name, Date startDate, int duration, int teacherId, int themeId) {
+        this.setId(id);
+        this.setName(name);
+        this.setStartDate(startDate);
+        this.setDuration(duration);
+        this.setTeacherId(teacherId);
+        this.setThemeId(themeId);
+    }
+
     public int getId() {
         return id;
     }

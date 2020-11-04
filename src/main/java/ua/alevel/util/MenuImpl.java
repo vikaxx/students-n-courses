@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.alevel.dto.Course;
 import ua.alevel.dto.additional.CourseWithStudentsAmount;
+import ua.alevel.services.CourseService;
+import ua.alevel.services.StudentService;
 import ua.alevel.services.TeacherService;
 import ua.alevel.services.ThemeService;
 import ua.alevel.users.AbstractUser;
@@ -48,6 +50,12 @@ public class MenuImpl implements Menu {
     @Autowired
     private ThemeService themeService;
 
+    @Autowired
+    private CourseService courseService;
+
+    @Autowired
+    private StudentService studentService;
+
 
     public MenuImpl() {
     }
@@ -89,7 +97,7 @@ public class MenuImpl implements Menu {
                 System.out.println("12 - Update course");
                 System.out.println("13 - Delete course");
                 System.out.println("14 - Put teacher to course");
-                System.out.println("15 - Ban student");
+                System.out.println("15 - Block/unblock student");
                 ////     quit program       ////
                 System.out.println("q - quit\n");
 
@@ -165,22 +173,27 @@ public class MenuImpl implements Menu {
                         courses.forEach(System.out::println);
                         break;
                     case "10":
-
+                        teacherService.addNewTeacher(ObjectInit.newTeacher());
                         break;
                     case "11":
-
+                        courseService.addNewCourse(ObjectInit.newCourse());
                         break;
                     case "12":
-
+                        abstractUser.selectAllCourses().forEach(System.out::println);
+                        courseService.updateCourse(ObjectInit.updateCourse());
                         break;
                     case "13":
-
+                        abstractUser.selectAllCourses().forEach(System.out::println);
+                        courseService.deleteCourse(Input.inputCourseId());
                         break;
                     case "14":
-
+                        teacherService.selectAllTeachers().forEach(System.out::println);
+                        abstractUser.selectAllCourses().forEach(System.out::println);
+                        courseService.putTeacherToCourse(Input.inputTeacherId(), Input.inputCourseId());
                         break;
                     case "15":
-
+                        studentService.selectAllStudents().forEach(System.out::println);
+                        studentService.setStudentBanned(Input.inputStudentId(), Input.blockStudent());
                         break;
                     case "q":
                         System.out.println("Exit!");

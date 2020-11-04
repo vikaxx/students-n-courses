@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import ua.alevel.dao.StudentDao;
 import ua.alevel.datasource.DataSource;
 import ua.alevel.dto.Course;
+import ua.alevel.dto.Student;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -59,5 +60,21 @@ public class StudentDaoImpl implements StudentDao {
             LOG.error("SQL error: ", e);
         }
         return isBanned;
+    }
+
+    @Override
+    public List<Student> selectAllStudents() {
+        List<Student> records = new ArrayList<>();
+        try (final Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement("Select * from student")) {
+            final ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                records.add(new Student().mapResultSetToTableObject(resultSet));
+            }
+        } catch (SQLException e) {
+            LOG.error("SQL error: ", e);
+        }
+        return records;
     }
 }

@@ -33,5 +33,36 @@ public class Input {
         return input;
     }
 
+    public static int inputCourseId() {
+        int input = 1;
+        try {
+            System.out.print("Input course id: ");
+            input = Integer.parseInt(reader.readLine());
+        } catch (IOException e) {
+            LOG.error("IO exception ", e);
+        }
+        return input;
+    }
 
+
+    public static int inputStudentId() {
+        int input = 1;
+        try {
+            System.out.print("Input student id: ");
+            input = Integer.parseInt(reader.readLine());
+        } catch (IOException e) {
+            LOG.error("IO exception ", e);
+        }
+        return input;
+    }
+
+    public static boolean blockStudent() {
+        try {
+            System.out.print("Input 'true' to block or 'false' to unblock student: ");
+            return Boolean.parseBoolean(reader.readLine());
+        } catch (IOException e) {
+            LOG.error("IO exception ", e);
+        }
+        return false;
+    }
 }
