@@ -2,6 +2,8 @@ package ua.alevel.users.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import ua.alevel.dto.Course;
 import ua.alevel.dto.additional.CourseWithStudentsAmount;
 import ua.alevel.services.CourseService;
@@ -9,7 +11,7 @@ import ua.alevel.users.AbstractUser;
 
 import java.util.List;
 
-@Component
+@Service
 public class AbstractUserImpl implements AbstractUser {
     @Autowired
     private CourseService courseService;

@@ -10,7 +10,7 @@ import ua.alevel.services.TeacherService;
 import ua.alevel.users.AdminUser;
 
 @Component
-public class AdminUserImpl extends AbstractUserImpl implements AdminUser {
+public class AdminUserImpl implements AdminUser {
 
     @Autowired
     private TeacherService teacherService;

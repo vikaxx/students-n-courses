@@ -29,13 +29,9 @@ public class CourseDaoImpl extends TableDaoImpl implements CourseDao {
 
     @Override
     public List<Course> selectAllCourses() {
-        return super.<Course>selectAllRecordsInTable("Course");
-    }
-
-    private List<Course> selectAllCoursesWithOrder(String orderByDirection) {
         List<Course> records = new ArrayList<>();
         try (final Connection connection = dataSource.getConnection();
-             PreparedStatement statement = connection.prepareStatement("Select * from courses ORDER BY name " + orderByDirection)) {
+             PreparedStatement statement = connection.prepareStatement("Select * from course")) {
             final ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
@@ -45,7 +41,21 @@ public class CourseDaoImpl extends TableDaoImpl implements CourseDao {
             LOG.error("SQL error: ", e);
         }
         return records;
+    }
 
+    private List<Course> selectAllCoursesWithOrder(String orderByDirection) {
+        List<Course> records = new ArrayList<>();
+        try (final Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement("Select * from course ORDER BY name " + orderByDirection)) {
+            final ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                records.add(new Course().mapResultSetToTableObject(resultSet));
+            }
+        } catch (SQLException e) {
+            LOG.error("SQL error: ", e);
+        }
+        return records;
     }
 
     @Override

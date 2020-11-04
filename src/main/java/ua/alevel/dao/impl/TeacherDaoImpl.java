@@ -6,15 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ua.alevel.dao.TeacherDao;
 import ua.alevel.datasource.DataSource;
+import ua.alevel.dto.Course;
 import ua.alevel.dto.Teacher;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class TeacherDaoImpl implements TeacherDao {
-    private static final Logger LOG = LoggerFactory.getLogger(TableDaoImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(TeacherDaoImpl.class);
     private DataSource dataSource;
 
     @Autowired // достать поле из конструктора который предоставляет спринг
@@ -43,4 +47,19 @@ public class TeacherDaoImpl implements TeacherDao {
         return false;
     }
 
+    @Override
+    public List<Teacher> selectAllTeachers() {
+        List<Teacher> records = new ArrayList<>();
+        try (final Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement("Select * from teacher")) {
+            final ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                records.add(new Teacher().mapResultSetToTableObject(resultSet));
+            }
+        } catch (SQLException e) {
+            LOG.error("SQL error: ", e);
+        }
+        return records;
+    }
 }

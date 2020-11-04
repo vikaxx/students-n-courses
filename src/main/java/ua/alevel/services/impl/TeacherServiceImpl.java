@@ -6,6 +6,8 @@ import ua.alevel.dao.TeacherDao;
 import ua.alevel.dto.Teacher;
 import ua.alevel.services.TeacherService;
 
+import java.util.List;
+
 @Service
 public class TeacherServiceImpl implements TeacherService {
     @Autowired
@@ -17,5 +19,10 @@ public class TeacherServiceImpl implements TeacherService {
             if (newTeacher.getFirstName() != null && newTeacher.getLastName() != null)
                 return teacherDao.addNewTeacher(newTeacher);
         return false;
+    }
+
+    @Override
+    public List<Teacher> selectAllTeachers() {
+        return teacherDao.selectAllTeachers();
     }
 }

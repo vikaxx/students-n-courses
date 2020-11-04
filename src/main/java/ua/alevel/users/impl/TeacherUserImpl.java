@@ -12,7 +12,7 @@ import ua.alevel.users.TeacherUser;
 import java.util.List;
 
 @Component
-public class TeacherUserImpl extends AbstractUserImpl implements TeacherUser {
+public class TeacherUserImpl implements TeacherUser {
 
     private int teacherId;
 
