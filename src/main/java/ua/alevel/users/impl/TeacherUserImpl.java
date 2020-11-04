@@ -1,30 +1,63 @@
 package ua.alevel.users.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import ua.alevel.dto.Course;
 import ua.alevel.dto.Grade;
 import ua.alevel.dto.additional.GradesInTeacherCourses;
+import ua.alevel.services.CourseService;
+import ua.alevel.services.GradeService;
 import ua.alevel.users.TeacherUser;
 
 import java.util.List;
 
+@Component
 public class TeacherUserImpl extends AbstractUserImpl implements TeacherUser {
+
+    private int teacherId;
+
+    public TeacherUserImpl() {
+    }
+
+    public TeacherUserImpl(int teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    @Autowired
+    private CourseService courseService;
+
+    @Autowired
+    private GradeService gradeService;
+
     @Override
     public List<Course> selectCoursesByTeacher() {
-        return null;
+        if (teacherId > 0)
+            return courseService.selectCoursesByTeacher(teacherId);
+        else return null;
     }
 
     @Override
     public boolean addGrade(Grade grade) {
+        if (grade != null) {
+            if (grade.getMark() > -1 && grade.getMark() < 101)
+                return gradeService.addGrade(grade);
+        }
         return false;
     }
 
     @Override
     public boolean updateGrade(Grade newGrade) {
+        if (newGrade != null) {
+            if (newGrade.getMark() > -1 && newGrade.getMark() < 101)
+                return gradeService.updateGrade(newGrade);
+        }
         return false;
     }
 
     @Override
     public List<GradesInTeacherCourses> selectAllGradesByCourseTeacher() {
-        return null;
+        if (teacherId > 0)
+            return gradeService.selectAllGradesByCourseTeacher(teacherId);
+        else return null;
     }
 }

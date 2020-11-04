@@ -29,7 +29,9 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User selectUserByLogin(String login) {
         try (final Connection connection = dataSource.getConnection();
-             PreparedStatement statement = connection.prepareStatement("SELECT * FROM `user` where login = ?")) {
+             PreparedStatement statement = connection.prepareStatement("SELECT u.*, u.login, u.`type`, t.id as teacherId, s.id as studentId  FROM `user` u \n" +
+                     "left JOIN student s on s.userId = u.id \n" +
+                     "left join teacher t on t.userId = u.id where u.login = ?")) {
             statement.setString(1, login);
             final ResultSet resultSet = statement.executeQuery();
 

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface StudentUser {
 
-    boolean addNewCourse(int courseId);
+    boolean goToNewCourse(int courseId);
 
     List<Course> selectNotStartedCoursesByStudent();
 

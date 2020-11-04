@@ -12,6 +12,17 @@ public class Teacher implements Table {
     private int id;
     private String firstName;
     private String lastName;
+    private int userId;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        if (userId > 0)
+            this.userId = userId;
+        else LOG.warn("Incorrect value Teacher.userId");
+    }
 
     public Teacher() {
     }
@@ -63,6 +74,7 @@ public class Teacher implements Table {
             current.setId(resultSet.getInt("id"));
             current.setFirstName(resultSet.getString("firstName"));
             current.setLastName(resultSet.getString("lastName"));
+            current.setUserId(resultSet.getInt("userId"));
         } catch (SQLException e) {
             LOG.error("SQL error: ", e);
         }
@@ -76,6 +88,7 @@ public class Teacher implements Table {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", userId=" + userId +
                 '}';
     }
 }

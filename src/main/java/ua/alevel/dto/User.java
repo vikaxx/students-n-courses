@@ -12,6 +12,40 @@ public class User implements Table {
     private int id;
     private String login;
     private String pass;
+    private int teacherId;
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    private int studentId;
+
+    public int getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(int teacherId) {
+        if (teacherId > 0)
+            this.teacherId = teacherId;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        if (type != null) {
+            if (!type.isEmpty())
+                this.type = type;
+            else LOG.warn("Incorrect value User.type");
+        } else LOG.warn("Null value User.type");
+    }
+
+    private String type;
 
     public int getId() {
         return id;
@@ -20,7 +54,7 @@ public class User implements Table {
     public void setId(int id) {
         if (id > 0)
             this.id = id;
-        else LOG.warn("Incorrect value Student.id");
+        else LOG.warn("Incorrect value User.id");
     }
 
     public String getLogin() {
@@ -47,22 +81,13 @@ public class User implements Table {
         } else LOG.warn("Null value User.pass");
     }
 
-    public User(String login, String pass) {
+    public User(String login, String pass, String type) {
         this.setLogin(login);
         this.setPass(pass);
+        this.setType(type);
     }
 
     public User() {
-
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                ", pass='" + pass + '\'' +
-                '}';
     }
 
     @Override
@@ -73,10 +98,24 @@ public class User implements Table {
             current.setId(resultSet.getInt("id"));
             current.setLogin(resultSet.getString("login"));
             current.setPass(resultSet.getString("pass"));
+            current.setType(resultSet.getString("type"));
+            current.setTeacherId(resultSet.getInt("teacherId"));
+            current.setStudentId(resultSet.getInt("studentId"));
         } catch (SQLException e) {
             LOG.error("SQL error: ", e);
         }
-
         return current;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", pass='" + pass + '\'' +
+                ", teacherId=" + teacherId +
+                ", studentId=" + studentId +
+                ", type='" + type + '\'' +
+                '}';
     }
 }

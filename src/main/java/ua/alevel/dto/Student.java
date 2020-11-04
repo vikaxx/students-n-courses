@@ -13,6 +13,17 @@ public class Student implements Table {
     private String firstName;
     private String lastName;
     private boolean isBanned;
+    private int userId;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        if (userId > 0)
+            this.userId = userId;
+        else LOG.warn("Incorrect value User.userId");
+    }
 
     public Student() {
     }
@@ -74,6 +85,7 @@ public class Student implements Table {
             current.setFirstName(resultSet.getString("firstName"));
             current.setLastName(resultSet.getString("lastName"));
             current.setBanned(resultSet.getBoolean("isBanned"));
+            current.setUserId(resultSet.getInt("userId"));
         } catch (SQLException e) {
             LOG.error("SQL error: ", e);
         }
@@ -88,6 +100,7 @@ public class Student implements Table {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", isBanned=" + isBanned +
+                ", userId=" + userId +
                 '}';
     }
 }
