@@ -6,13 +6,6 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import ua.alevel.dto.Course;
-import ua.alevel.dto.Grade;
-import ua.alevel.dto.StudentsCourse;
-import ua.alevel.dto.Teacher;
-import ua.alevel.services.*;
-
-import java.util.Date;
 
 @SpringBootApplication
 public class Main {
@@ -29,6 +22,8 @@ public class Main {
 //        System.out.println(teacher);
 //
 //        System.out.println(teacherService.addNewTeacher(teacher));
-        
+
+
+
     }
 }
