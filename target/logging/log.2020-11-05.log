@@ -1,0 +1,22 @@
+05.11.2020 00:00:01.559 [main] INFO   ua.alevel.Main - Starting Main on ASUS-PC with PID 5740 (C:\Users\User\IdeaProjects\studentcources\target\classes started by User in C:\Users\User\IdeaProjects\studentcources)
+05.11.2020 00:00:01.591 [main] INFO   ua.alevel.Main - No active profile set, falling back to default profiles: default
+05.11.2020 00:00:03.592 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Starting...
+05.11.2020 00:00:05.646 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+05.11.2020 00:00:06.036 [main] INFO   ua.alevel.Main - Started Main in 6.051 seconds (JVM running for 7.943)
+05.11.2020 00:06:45.047 [main] INFO   ua.alevel.Main - Starting Main on ASUS-PC with PID 5148 (C:\Users\User\IdeaProjects\studentcources\target\classes started by User in C:\Users\User\IdeaProjects\studentcources)
+05.11.2020 00:06:45.058 [main] INFO   ua.alevel.Main - No active profile set, falling back to default profiles: default
+05.11.2020 00:06:46.904 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Starting...
+05.11.2020 00:06:48.823 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+05.11.2020 00:06:49.214 [main] INFO   ua.alevel.Main - Started Main in 5.617 seconds (JVM running for 7.852)
+05.11.2020 00:10:33.415 [main] INFO   ua.alevel.Main - Starting Main on ASUS-PC with PID 1128 (C:\Users\User\IdeaProjects\studentcources\target\classes started by User in C:\Users\User\IdeaProjects\studentcources)
+05.11.2020 00:10:33.426 [main] INFO   ua.alevel.Main - No active profile set, falling back to default profiles: default
+05.11.2020 00:10:35.405 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Starting...
+05.11.2020 00:10:37.351 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+05.11.2020 00:10:37.707 [main] INFO   ua.alevel.Main - Started Main in 5.622 seconds (JVM running for 7.594)
+05.11.2020 00:27:37.905 [main] INFO   ua.alevel.Main - Starting Main on ASUS-PC with PID 2536 (C:\Users\User\IdeaProjects\studentcources\target\classes started by User in C:\Users\User\IdeaProjects\studentcources)
+05.11.2020 00:27:37.918 [main] INFO   ua.alevel.Main - No active profile set, falling back to default profiles: default
+05.11.2020 00:27:39.977 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Starting...
+05.11.2020 00:27:41.877 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+05.11.2020 00:27:42.240 [main] INFO   ua.alevel.Main - Started Main in 5.666 seconds (JVM running for 7.387)
+05.11.2020 00:32:02.511 [main] INFO   ua.alevel.Main - Starting Main on ASUS-PC with PID 2212 (C:\Users\User\IdeaProjects\studentcources\target\classes started by User in C:\Users\User\IdeaProjects\studentcources)
+05.11.2020 00:32:02.523 [main] INFO   ua.alevel.Main - No active profile set, falling back to default profiles: default

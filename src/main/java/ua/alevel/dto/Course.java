@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.Date;
 
 public class Course implements Table {
-    private static final Logger LOG = LoggerFactory.getLogger(TableDaoImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Course.class);
 
     private int id;
     private String name;

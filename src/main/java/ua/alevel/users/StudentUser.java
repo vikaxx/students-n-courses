@@ -10,6 +10,8 @@ public interface StudentUser {
 
     void setStudentId(int studentId);
 
+    boolean isStudentBanned(int studentId);
+
     List<Course> selectNotStartedCoursesByStudent();
 
     List<Course> selectStartedCoursesByStudent();

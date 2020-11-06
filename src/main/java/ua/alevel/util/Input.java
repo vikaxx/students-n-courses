@@ -29,6 +29,9 @@ public class Input {
             input = Integer.parseInt(reader.readLine());
         } catch (IOException e) {
             LOG.error("IO exception ", e);
+        }catch (NumberFormatException e) {
+            System.out.println("Incorrect value.");
+            return inputTeacherId();
         }
         return input;
     }
@@ -40,6 +43,9 @@ public class Input {
             input = Integer.parseInt(reader.readLine());
         } catch (IOException e) {
             LOG.error("IO exception ", e);
+        }catch (NumberFormatException e) {
+            System.out.println("Incorrect value.");
+            return inputCourseId();
         }
         return input;
     }
@@ -52,6 +58,9 @@ public class Input {
             input = Integer.parseInt(reader.readLine());
         } catch (IOException e) {
             LOG.error("IO exception ", e);
+        }catch (NumberFormatException e) {
+            System.out.println("Incorrect value.");
+            return inputStudentId();
         }
         return input;
     }

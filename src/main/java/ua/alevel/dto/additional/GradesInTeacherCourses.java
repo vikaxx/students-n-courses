@@ -10,7 +10,10 @@ import java.sql.SQLException;
 import java.util.Date;
 
 public class GradesInTeacherCourses implements Table {
-    private static final Logger LOG = LoggerFactory.getLogger(TableDaoImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(GradesInTeacherCourses.class);
+
+    private int studentCourseId;
+    private int mark;
 
     private String courseName;
     private Date startDate;
@@ -22,7 +25,24 @@ public class GradesInTeacherCourses implements Table {
     private String lastName;
     private boolean isBanned;
 
-    private int mark;
+
+    public int getStudentCourseId() {
+        return studentCourseId;
+    }
+
+    public void setStudentCourseId(int studentCourseId) {
+            this.studentCourseId = studentCourseId;
+    }
+    private int gradeId;
+
+
+    public int getGradeId() {
+        return gradeId;
+    }
+
+    public void setGradeId(int gradeId) {
+        this.gradeId = gradeId;
+    }
 
     public int getMark() {
         return mark;
@@ -35,7 +55,10 @@ public class GradesInTeacherCourses implements Table {
     public GradesInTeacherCourses() {
     }
 
-    public GradesInTeacherCourses(String courseName, Date startDate, int duration, int teacherId, int themeId, String firstName, String lastName, boolean isBanned, int mark) {
+    public GradesInTeacherCourses(int gradeId, int studentCourseId, int mark, String courseName, Date startDate, int duration, int teacherId, int themeId, String firstName, String lastName, boolean isBanned) {
+        this.gradeId = gradeId;
+        this.studentCourseId = studentCourseId;
+        this.mark = mark;
         this.courseName = courseName;
         this.startDate = startDate;
         this.duration = duration;
@@ -44,7 +67,6 @@ public class GradesInTeacherCourses implements Table {
         this.firstName = firstName;
         this.lastName = lastName;
         this.isBanned = isBanned;
-        this.mark = mark;
     }
 
     public String getCourseName() {
@@ -116,6 +138,8 @@ public class GradesInTeacherCourses implements Table {
         GradesInTeacherCourses current = new GradesInTeacherCourses();
 
         try {
+            current.setGradeId(resultSet.getInt("gradeId"));
+            current.setStudentCourseId(resultSet.getInt("scid"));
             current.setCourseName(resultSet.getString("name"));
             current.setStartDate(resultSet.getDate("startDate"));
             current.setDuration(resultSet.getInt("duration"));
@@ -137,15 +161,17 @@ public class GradesInTeacherCourses implements Table {
     @Override
     public String toString() {
         return "GradesInTeacherCourses{" +
-                "courseName='" + courseName + '\'' +
+                "gradeId=" + gradeId +
+                ", studentCourseId=" + studentCourseId +
+                ", mark=" + mark +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", courseName='" + courseName + '\'' +
                 ", startDate=" + startDate +
                 ", duration=" + duration +
                 ", teacherId=" + teacherId +
                 ", themeId=" + themeId +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
                 ", isBanned=" + isBanned +
-                ", mark=" + mark +
                 '}';
     }
 }

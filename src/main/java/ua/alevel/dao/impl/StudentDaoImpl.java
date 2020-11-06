@@ -18,7 +18,7 @@ import java.util.List;
 
 @Component
 public class StudentDaoImpl implements StudentDao {
-    private static final Logger LOG = LoggerFactory.getLogger(TableDaoImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(StudentDaoImpl.class);
     private DataSource dataSource;
 
     @Autowired // достать поле из конструктора который предоставляет спринг

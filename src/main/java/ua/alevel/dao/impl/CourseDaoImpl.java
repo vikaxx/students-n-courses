@@ -204,6 +204,8 @@ public class CourseDaoImpl extends TableDaoImpl implements CourseDao {
             ps.setInt(1, courseId);
             ps.executeUpdate();
 
+        }  catch (SQLIntegrityConstraintViolationException e) {
+            return null;
         } catch (SQLException e) {
             LOG.error("SQL Error", e);
         }

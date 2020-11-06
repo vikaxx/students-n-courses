@@ -62,6 +62,9 @@ public class ObjectInit {
         } catch (IOException e) {
             System.out.println("Incorrect values.");
             return newCourse();
+        } catch (NumberFormatException e) {
+            System.out.println("Incorrect value.");
+            return newCourse();
         }
 
         return course;
@@ -71,14 +74,12 @@ public class ObjectInit {
         while (true) {
             try {
                 final String startDateLine = reader.readLine();
-                final Date startDate = dateFormat.parse(startDateLine);
-                return startDate;
+                return dateFormat.parse(startDateLine);
             } catch (ParseException e) {
-                LOG.error("Can not parse date ", e);
+//                LOG.error("Can not parse date ", e);
                 System.out.println("Incorrect format. Try again.");
             } catch (IOException e) {
                 System.out.println("Incorrect values.");
-
             }
         }
     }
@@ -110,6 +111,9 @@ public class ObjectInit {
         } catch (IOException e) {
             System.out.println("Incorrect values.");
             return updateCourse();
+        }  catch (NumberFormatException e) {
+            System.out.println("Incorrect value.");
+            return updateCourse();
         }
 
         return course;
@@ -119,13 +123,16 @@ public class ObjectInit {
         Grade grade = new Grade();
 
         try {
-            System.out.print("Input mark: ");
-            grade.setMark(Integer.parseInt(reader.readLine()));
-
             System.out.print("Input student course id: ");
             grade.setStudentsCourseId(Integer.parseInt(reader.readLine()));
+
+            System.out.print("Input mark: ");
+            grade.setMark(Integer.parseInt(reader.readLine()));
         } catch (IOException e) {
             System.out.println("Incorrect values.");
+            return newGrade();
+        }  catch (NumberFormatException e) {
+            System.out.println("Incorrect value.");
             return newGrade();
         }
 
@@ -136,17 +143,17 @@ public class ObjectInit {
         Grade grade = new Grade();
 
         try {
-            System.out.print("Input id: ");
+            System.out.print("Input grade id: ");
             grade.setId(Integer.parseInt(reader.readLine()));
 
             System.out.print("Input mark: ");
             grade.setMark(Integer.parseInt(reader.readLine()));
 
-            System.out.print("Input student course id: ");
-            grade.setStudentsCourseId(Integer.parseInt(reader.readLine()));
-
         } catch (IOException e) {
             System.out.println("Incorrect values.");
+            return updateGrade();
+        }  catch (NumberFormatException e) {
+            System.out.println("Incorrect value.");
             return updateGrade();
         }
 

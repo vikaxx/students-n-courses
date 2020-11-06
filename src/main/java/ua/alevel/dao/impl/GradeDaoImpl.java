@@ -9,16 +9,13 @@ import ua.alevel.datasource.DataSource;
 import ua.alevel.dto.Grade;
 import ua.alevel.dto.additional.GradesInTeacherCourses;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class GradeDaoImpl implements GradeDao {
-    private static final Logger LOG = LoggerFactory.getLogger(TableDaoImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(GradeDaoImpl.class);
     private DataSource dataSource;
 
     @Autowired // достать поле из конструктора который предоставляет спринг
@@ -40,7 +37,10 @@ public class GradeDaoImpl implements GradeDao {
 
             ps.executeUpdate();
             return true;
-        } catch (SQLException e) {
+        } catch(SQLIntegrityConstraintViolationException e){
+            return false;
+        }
+        catch (SQLException e) {
             LOG.error("SQL Error", e);
         }
         return false;
@@ -50,12 +50,11 @@ public class GradeDaoImpl implements GradeDao {
     public boolean updateGrade(Grade newGrade) {
         try (final Connection connection = dataSource.getConnection();
              PreparedStatement ps = connection.prepareStatement("UPDATE grade " +
-                     "SET mark=?, studentsCourseId=? " +
+                     "SET mark=?" +
                      "WHERE id=?")) {
 
             ps.setInt(1, newGrade.getMark());
-            ps.setInt(2, newGrade.getStudentsCourseId());
-            ps.setInt(3, newGrade.getId());
+            ps.setInt(2, newGrade.getId());
 
             ps.executeUpdate();
             return true;
@@ -70,7 +69,7 @@ public class GradeDaoImpl implements GradeDao {
     public List<GradesInTeacherCourses> selectAllGradesByCourseTeacher(int teacherId) {
         List<GradesInTeacherCourses> courses = new ArrayList<>();
         try (final Connection connection = dataSource.getConnection();
-             PreparedStatement statement = connection.prepareStatement("SELECT c.*, g.mark, s.* " +
+             PreparedStatement statement = connection.prepareStatement("SELECT c.*, g.mark, g.id AS gradeId, s.*, sc.id AS scid " +
                      "FROM course c JOIN studentsCourse sc ON c.id = sc.courseId " +
                      "JOIN grade g on g.studentsCourseId = sc.id join student s on s.id = sc.studentId " +
                      "where c.teacherId = ? order by c.name")) {

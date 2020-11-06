@@ -25,6 +25,11 @@ public class StudentUserImpl implements StudentUser {
         this.studentId = studentId;
     }
 
+    @Override
+    public boolean isStudentBanned(int studentId) {
+        return studentService.isStudentBanned(studentId);
+    }
+
     public StudentUserImpl() {
     }
 
