@@ -57,7 +57,6 @@ public class MenuImpl implements Menu {
     @Autowired
     private StudentService studentService;
 
-
     public MenuImpl() {
     }
 
@@ -82,97 +81,17 @@ public class MenuImpl implements Menu {
     private void mainMenuAdmin() {
         try {
             while (true) {
-                System.out.println("\nChoose an action, please: ");
-                System.out.println("1 - See all courses");
-                System.out.println("2 - See all courses sorted a-z");
-                System.out.println("3 - See all courses sorted z-a");
-                System.out.println("4 - See all courses sorted by duration 1-9");
-                System.out.println("5 - See all courses sorted by duration 9-1");
-                System.out.println("6 - See all courses sorted by students amount 1-9");
-                System.out.println("7 - See all courses sorted by students amount 9-1");
-                System.out.println("8 - See all courses by theme");
-                System.out.println("9 - See all courses by teacher");
-                ////     special role opportunities       ////
+                commonUserActionsInfo();
                 System.out.println("10 - Add new teacher");
                 System.out.println("11 - Add new course");
                 System.out.println("12 - Update course");
                 System.out.println("13 - Delete course");
                 System.out.println("14 - Put teacher to course");
                 System.out.println("15 - Block/unblock student");
-                ////     quit program       ////
-                System.out.println("q - quit\n");
 
                 String input = reader.readLine();
 
-                List<Course> courses;
-                List<CourseWithStudentsAmount> coursesWithAmount;
-
                 switch (input) {
-                    case "1":
-                        courses = abstractUser.selectAllCourses();
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "2":
-                        courses = abstractUser.selectAllCoursesAZ();
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "3":
-                        courses = abstractUser.selectAllCoursesZA();
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "4":
-                        courses = abstractUser.selectCoursesSortedByDuration("ASC");
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "5":
-                        courses = abstractUser.selectCoursesSortedByDuration("DESC");
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "6":
-                        coursesWithAmount = abstractUser.selectCoursesSortedByStudentsQuantity("ASC");
-                        if (coursesWithAmount.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        coursesWithAmount.forEach(System.out::println);
-                        break;
-                    case "7":
-                        coursesWithAmount = abstractUser.selectCoursesSortedByStudentsQuantity("DESC");
-                        if (coursesWithAmount.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        coursesWithAmount.forEach(System.out::println);
-                        break;
-                    case "8":
-                        themeService.selectAllThemes().forEach(System.out::println);
-                        courses = abstractUser.selectCoursesByTheme(Input.inputTheme());
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "9":
-                        teacherService.selectAllTeachers().forEach(System.out::println);
-                        courses = abstractUser.selectCoursesByTeacher(Input.inputTeacherId());
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
                     case "10":
                         if (adminUser.addNewTeacher(ObjectInit.newTeacher()))
                             System.out.println("Teacher was added.");
@@ -207,12 +126,8 @@ public class MenuImpl implements Menu {
                                 System.out.println("Student was blocked");
                             else System.out.println("Student was unblocked");
                         break;
-                    case "q":
-                        System.out.println("Exit!");
-                        System.exit(0);
-                        break;
                     default:
-                        System.out.println("Input 'q' to quit.\n");
+                        commonUserActions(input);
                 }
 
             }
@@ -229,101 +144,22 @@ public class MenuImpl implements Menu {
     }
 
     private void mainMenuStudent(int id) {
-//        System.out.println("your id is " + id);
         studentUser.setStudentId(id);
         boolean isBanned = studentUser.isStudentBanned(id);
 
         try {
             while (true) {
-                System.out.println("\nChoose an action, please: ");
-                System.out.println("1 - See all courses");
-                System.out.println("2 - See all courses sorted a-z");
-                System.out.println("3 - See all courses sorted z-a");
-                System.out.println("4 - See all courses sorted by duration 1-9");
-                System.out.println("5 - See all courses sorted by duration 9-1");
-                System.out.println("6 - See all courses sorted by students amount 1-9");
-                System.out.println("7 - See all courses sorted by students amount 9-1");
-                System.out.println("8 - See all courses by theme");
-                System.out.println("9 - See all courses by teacher");
-                ////     special role opportunities       ////
+                commonUserActionsInfo();
                 System.out.println("10 - Go to new course");
                 System.out.println("11 - See my future courses");
                 System.out.println("12 - See my current courses");
                 System.out.println("13 - See my finished courses");
-                ////     quit program       ////
-                System.out.println("q - quit\n");
 
                 String input = reader.readLine();
 
                 List<Course> courses;
-                List<CourseWithStudentsAmount> coursesWithAmount;
 
                 switch (input) {
-                    case "1":
-                        courses = abstractUser.selectAllCourses();
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "2":
-                        courses = abstractUser.selectAllCoursesAZ();
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "3":
-                        courses = abstractUser.selectAllCoursesZA();
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "4":
-                        courses = abstractUser.selectCoursesSortedByDuration("ASC");
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "5":
-                        courses = abstractUser.selectCoursesSortedByDuration("DESC");
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "6":
-                        coursesWithAmount = abstractUser.selectCoursesSortedByStudentsQuantity("ASC");
-                        if (coursesWithAmount.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        coursesWithAmount.forEach(System.out::println);
-                        break;
-                    case "7":
-                        coursesWithAmount = abstractUser.selectCoursesSortedByStudentsQuantity("DESC");
-                        if (coursesWithAmount.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        coursesWithAmount.forEach(System.out::println);
-                        break;
-                    case "8":
-                        themeService.selectAllThemes().forEach(System.out::println);
-                        courses = abstractUser.selectCoursesByTheme(Input.inputTheme());
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "9":
-                        teacherService.selectAllTeachers().forEach(System.out::println);
-                        courses = abstractUser.selectCoursesByTeacher(Input.inputTeacherId());
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
                     case "10":
                         if (!isBanned) {
                             courseService.selectNotStartedCourses().forEach(System.out::println);
@@ -333,31 +169,18 @@ public class MenuImpl implements Menu {
                         break;
                     case "11":
                         courses = studentUser.selectNotStartedCoursesByStudent();
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
+                        printCourses(courses);
                         break;
                     case "12":
                         courses = studentUser.selectStartedCoursesByStudent();
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
+                        printCourses(courses);
                         break;
                     case "13":
                         courses = studentUser.selectEndedCoursesByStudent();
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "q":
-                        System.out.println("Exit!");
-                        System.exit(0);
+                        printCourses(courses);
                         break;
                     default:
-                        System.out.println("Input 'q' to quit.\n");
+                        commonUserActions(input);
                 }
 
             }
@@ -374,108 +197,26 @@ public class MenuImpl implements Menu {
     }
 
     private void mainMenuTeacher(int id) {
-//        System.out.println("your id is " + id);
         teacherUser.setTeacherId(id);
 
         try {
             while (true) {
-                System.out.println("\nChoose an action, please: ");
-                System.out.println("1 - See all courses");
-                System.out.println("2 - See all courses sorted a-z");
-                System.out.println("3 - See all courses sorted z-a");
-                System.out.println("4 - See all courses sorted by duration 1-9");
-                System.out.println("5 - See all courses sorted by duration 9-1");
-                System.out.println("6 - See all courses sorted by students amount 1-9");
-                System.out.println("7 - See all courses sorted by students amount 9-1");
-                System.out.println("8 - See all courses by theme");
-                System.out.println("9 - See all courses by teacher");
-                ////     special role opportunities       ////
+                commonUserActionsInfo();
                 System.out.println("10 - See my courses");
                 System.out.println("11 - Grade student");
                 System.out.println("12 - Update student's grade");
                 System.out.println("13 - See grades journal");
-                ////     quit program       ////
-                System.out.println("q - quit\n");
 
                 String input = reader.readLine();
 
                 List<Course> courses;
-                List<CourseWithStudentsAmount> coursesWithAmount;
                 List<GradesInTeacherCourses> gradesInTeacherCourses;
                 List<GradeToBeAdded> gradeToBeAddeds;
 
                 switch (input) {
-                    case "1":
-                        courses = abstractUser.selectAllCourses();
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "2":
-                        courses = abstractUser.selectAllCoursesAZ();
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "3":
-                        courses = abstractUser.selectAllCoursesZA();
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "4":
-                        courses = abstractUser.selectCoursesSortedByDuration("ASC");
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "5":
-                        courses = abstractUser.selectCoursesSortedByDuration("DESC");
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "6":
-                        coursesWithAmount = abstractUser.selectCoursesSortedByStudentsQuantity("ASC");
-                        if (coursesWithAmount.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        coursesWithAmount.forEach(System.out::println);
-                        break;
-                    case "7":
-                        coursesWithAmount = abstractUser.selectCoursesSortedByStudentsQuantity("DESC");
-                        if (coursesWithAmount.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        coursesWithAmount.forEach(System.out::println);
-                        break;
-                    case "8":
-                        themeService.selectAllThemes().forEach(System.out::println);
-                        courses = abstractUser.selectCoursesByTheme(Input.inputTheme());
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
-                    case "9":
-                        teacherService.selectAllTeachers().forEach(System.out::println);
-                        courses = abstractUser.selectCoursesByTeacher(Input.inputTeacherId());
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
-                        break;
                     case "10":
                         courses = teacherUser.selectCoursesByTeacher();
-                        if (courses.isEmpty()) {
-                            System.out.println("No courses found.");
-                        }
-                        courses.forEach(System.out::println);
+                        printCourses(courses);
                         break;
                     case "11":
                         gradeToBeAddeds = teacherUser.selectNotGradedStudentsCourses(id);
@@ -499,12 +240,8 @@ public class MenuImpl implements Menu {
                         }
                         gradesInTeacherCourses.forEach(System.out::println);
                         break;
-                    case "q":
-                        System.out.println("Exit!");
-                        System.exit(0);
-                        break;
                     default:
-                        System.out.println("Input 'q' to quit.\n");
+                        commonUserActions(input);
                 }
 
             }
@@ -520,5 +257,84 @@ public class MenuImpl implements Menu {
         }
     }
 
+    private void printCourses(List<Course> courses) {
+        if (courses.isEmpty()) {
+            System.out.println("No courses found.");
+        }
+        courses.forEach(System.out::println);
+    }
+
+    private void printCoursesWithAmount(List<CourseWithStudentsAmount> coursesWithAmount) {
+        if (coursesWithAmount.isEmpty()) {
+            System.out.println("No courses found.");
+        }
+        coursesWithAmount.forEach(System.out::println);
+    }
+
+    private void commonUserActionsInfo() {
+        System.out.println("\nChoose an action, please: ");
+        System.out.println("q  - quit");
+        System.out.println("1  - See all courses");
+        System.out.println("2  - See all courses sorted a-z");
+        System.out.println("3  - See all courses sorted z-a");
+        System.out.println("4  - See all courses sorted by duration 1-9");
+        System.out.println("5  - See all courses sorted by duration 9-1");
+        System.out.println("6  - See all courses sorted by students amount 1-9");
+        System.out.println("7  - See all courses sorted by students amount 9-1");
+        System.out.println("8  - See all courses by theme");
+        System.out.println("9  - See all courses by teacher");
+    }
+
+    private void commonUserActions(String input) {
+        List<Course> courses;
+        List<CourseWithStudentsAmount> coursesWithAmount;
+
+        switch (input) {
+            case "1":
+                courses = abstractUser.selectAllCourses();
+                printCourses(courses);
+                break;
+            case "2":
+                courses = abstractUser.selectAllCoursesAZ();
+                printCourses(courses);
+                break;
+            case "3":
+                courses = abstractUser.selectAllCoursesZA();
+                printCourses(courses);
+                break;
+            case "4":
+                courses = abstractUser.selectCoursesSortedByDuration("ASC");
+                printCourses(courses);
+                break;
+            case "5":
+                courses = abstractUser.selectCoursesSortedByDuration("DESC");
+                printCourses(courses);
+                break;
+            case "6":
+                coursesWithAmount = abstractUser.selectCoursesSortedByStudentsQuantity("ASC");
+                printCoursesWithAmount(coursesWithAmount);
+                break;
+            case "7":
+                coursesWithAmount = abstractUser.selectCoursesSortedByStudentsQuantity("DESC");
+                printCoursesWithAmount(coursesWithAmount);
+                break;
+            case "8":
+                themeService.selectAllThemes().forEach(System.out::println);
+                courses = abstractUser.selectCoursesByTheme(Input.inputTheme());
+                printCourses(courses);
+                break;
+            case "9":
+                teacherService.selectAllTeachers().forEach(System.out::println);
+                courses = abstractUser.selectCoursesByTeacher(Input.inputTeacherId());
+                printCourses(courses);
+                break;
+            case "q":
+                System.out.println("Exit!");
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Input 'q' to quit.\n");
+        }
+    }
 }
 

@@ -4966,3 +4966,43 @@ java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check th
 06.11.2020 20:14:32.995 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Starting...
 06.11.2020 20:14:36.246 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Start completed.
 06.11.2020 20:14:36.603 [main] INFO   ua.alevel.Main - Started Main in 6.875 seconds (JVM running for 8.486)
+06.11.2020 22:22:29.187 [main] INFO   ua.alevel.Main - Starting Main on ASUS-PC with PID 2440 (C:\Users\User\IdeaProjects\studentcources\target\classes started by User in C:\Users\User\IdeaProjects\studentcources)
+06.11.2020 22:22:29.200 [main] INFO   ua.alevel.Main - No active profile set, falling back to default profiles: default
+06.11.2020 22:22:31.410 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Starting...
+06.11.2020 22:22:34.084 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+06.11.2020 22:22:34.480 [main] INFO   ua.alevel.Main - Started Main in 6.875 seconds (JVM running for 9.571)
+06.11.2020 22:24:09.738 [main] INFO   ua.alevel.Main - Starting Main on ASUS-PC with PID 5608 (C:\Users\User\IdeaProjects\studentcources\target\classes started by User in C:\Users\User\IdeaProjects\studentcources)
+06.11.2020 22:24:09.751 [main] INFO   ua.alevel.Main - No active profile set, falling back to default profiles: default
+06.11.2020 22:24:11.521 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Starting...
+06.11.2020 22:24:14.153 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+06.11.2020 22:24:14.513 [main] INFO   ua.alevel.Main - Started Main in 6.103 seconds (JVM running for 7.811)
+06.11.2020 22:28:10.379 [main] INFO   ua.alevel.Main - Starting Main on ASUS-PC with PID 1052 (C:\Users\User\IdeaProjects\studentcources\target\classes started by User in C:\Users\User\IdeaProjects\studentcources)
+06.11.2020 22:28:10.390 [main] INFO   ua.alevel.Main - No active profile set, falling back to default profiles: default
+06.11.2020 22:28:12.583 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Starting...
+06.11.2020 22:28:15.315 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+06.11.2020 22:28:15.668 [main] INFO   ua.alevel.Main - Started Main in 6.598 seconds (JVM running for 8.247)
+06.11.2020 22:32:19.087 [main] INFO   ua.alevel.Main - Starting Main on ASUS-PC with PID 2984 (C:\Users\User\IdeaProjects\studentcources\target\classes started by User in C:\Users\User\IdeaProjects\studentcources)
+06.11.2020 22:32:19.098 [main] INFO   ua.alevel.Main - No active profile set, falling back to default profiles: default
+06.11.2020 22:32:20.916 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Starting...
+06.11.2020 22:32:23.955 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+06.11.2020 22:32:24.343 [main] INFO   ua.alevel.Main - Started Main in 6.617 seconds (JVM running for 8.229)
+06.11.2020 22:33:03.868 [main] INFO   ua.alevel.Main - Starting Main on ASUS-PC with PID 1072 (C:\Users\User\IdeaProjects\studentcources\target\classes started by User in C:\Users\User\IdeaProjects\studentcources)
+06.11.2020 22:33:03.881 [main] INFO   ua.alevel.Main - No active profile set, falling back to default profiles: default
+06.11.2020 22:33:05.832 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Starting...
+06.11.2020 22:33:08.574 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+06.11.2020 22:33:08.925 [main] INFO   ua.alevel.Main - Started Main in 6.42 seconds (JVM running for 8.185)
+06.11.2020 22:34:14.904 [main] INFO   ua.alevel.Main - Starting Main on ASUS-PC with PID 2848 (C:\Users\User\IdeaProjects\studentcources\target\classes started by User in C:\Users\User\IdeaProjects\studentcources)
+06.11.2020 22:34:14.916 [main] INFO   ua.alevel.Main - No active profile set, falling back to default profiles: default
+06.11.2020 22:34:16.744 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Starting...
+06.11.2020 22:34:19.243 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+06.11.2020 22:34:19.594 [main] INFO   ua.alevel.Main - Started Main in 6.016 seconds (JVM running for 7.576)
+06.11.2020 22:51:56.548 [main] INFO   ua.alevel.Main - Starting Main on ASUS-PC with PID 2500 (C:\Users\User\IdeaProjects\studentcources\target\classes started by User in C:\Users\User\IdeaProjects\studentcources)
+06.11.2020 22:51:56.559 [main] INFO   ua.alevel.Main - No active profile set, falling back to default profiles: default
+06.11.2020 22:51:58.943 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Starting...
+06.11.2020 22:52:02.371 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+06.11.2020 22:52:02.719 [main] INFO   ua.alevel.Main - Started Main in 7.588 seconds (JVM running for 9.32)
+06.11.2020 22:55:06.207 [main] INFO   ua.alevel.Main - Starting Main on ASUS-PC with PID 1684 (C:\Users\User\IdeaProjects\studentcources\target\classes started by User in C:\Users\User\IdeaProjects\studentcources)
+06.11.2020 22:55:06.218 [main] INFO   ua.alevel.Main - No active profile set, falling back to default profiles: default
+06.11.2020 22:55:07.958 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Starting...
+06.11.2020 22:55:11.499 [main] INFO   c.z.h.HikariDataSource - HikariPool-1 - Start completed.
+06.11.2020 22:55:11.851 [main] INFO   ua.alevel.Main - Started Main in 7.012 seconds (JVM running for 8.585)
