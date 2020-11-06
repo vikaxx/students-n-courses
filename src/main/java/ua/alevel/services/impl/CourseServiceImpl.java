@@ -115,4 +115,14 @@ public class CourseServiceImpl implements CourseService {
             return courseDao.selectEndedCoursesByStudent(studentId);
         else return null;
     }
+
+    @Override
+    public List<Course> selectNotStartedCourses() {
+        return courseDao.selectNotStartedCourses();
+    }
+
+    @Override
+    public List<Course> selectEndedCourses() {
+        return courseDao.selectEndedCourses();
+    }
 }

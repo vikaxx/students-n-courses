@@ -1,6 +1,7 @@
 package ua.alevel.services;
 
 import ua.alevel.dto.Grade;
+import ua.alevel.dto.additional.GradeToBeAdded;
 import ua.alevel.dto.additional.GradesInTeacherCourses;
 
 import java.util.List;
@@ -12,4 +13,7 @@ public interface GradeService {
     boolean updateGrade(Grade newGrade);
 
     List<GradesInTeacherCourses> selectAllGradesByCourseTeacher(int teacherId);
+
+    List<GradeToBeAdded> selectNotGradedStudentsCourses(int teacherId);
+
 }

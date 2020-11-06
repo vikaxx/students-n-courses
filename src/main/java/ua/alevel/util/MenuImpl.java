@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.alevel.dto.Course;
 import ua.alevel.dto.additional.CourseWithStudentsAmount;
+import ua.alevel.dto.additional.GradeToBeAdded;
 import ua.alevel.dto.additional.GradesInTeacherCourses;
 import ua.alevel.services.CourseService;
 import ua.alevel.services.StudentService;
@@ -204,7 +205,7 @@ public class MenuImpl implements Menu {
                         if (adminUser.setStudentBanned(studId, ban))
                             if (ban)
                                 System.out.println("Student was blocked");
-                        else System.out.println("Student was unblocked");
+                            else System.out.println("Student was unblocked");
                         break;
                     case "q":
                         System.out.println("Exit!");
@@ -226,7 +227,6 @@ public class MenuImpl implements Menu {
             }
         }
     }
-
 
     private void mainMenuStudent(int id) {
 //        System.out.println("your id is " + id);
@@ -326,7 +326,7 @@ public class MenuImpl implements Menu {
                         break;
                     case "10":
                         if (!isBanned) {
-                            courseService.selectAllCourses().forEach(System.out::println);
+                            courseService.selectNotStartedCourses().forEach(System.out::println);
                             if (studentUser.goToNewCourse(Input.inputCourseId()))
                                 System.out.println("New course was added.");
                         } else System.out.println("Unfortunately you were blocked.");
@@ -374,7 +374,7 @@ public class MenuImpl implements Menu {
     }
 
     private void mainMenuTeacher(int id) {
-        System.out.println("your id is " + id);
+//        System.out.println("your id is " + id);
         teacherUser.setTeacherId(id);
 
         try {
@@ -402,6 +402,7 @@ public class MenuImpl implements Menu {
                 List<Course> courses;
                 List<CourseWithStudentsAmount> coursesWithAmount;
                 List<GradesInTeacherCourses> gradesInTeacherCourses;
+                List<GradeToBeAdded> gradeToBeAddeds;
 
                 switch (input) {
                     case "1":
@@ -477,15 +478,19 @@ public class MenuImpl implements Menu {
                         courses.forEach(System.out::println);
                         break;
                     case "11":
-                        teacherUser.selectAllGradesByCourseTeacher().forEach(System.out::println);
-                        if (teacherUser.addGrade(ObjectInit.newGrade())) {
-                            System.out.println("Grade was added.");
-                        } else System.out.println("Grade cannot be added.");
+                        gradeToBeAddeds = teacherUser.selectNotGradedStudentsCourses(id);
+                        if (!gradeToBeAddeds.isEmpty()) {
+                            gradeToBeAddeds.forEach(System.out::println);
+                            if (teacherUser.addGrade(ObjectInit.newGrade())) {
+                                System.out.println("Grade was added.");
+                            } else System.out.println("Grade cannot be added.");
+                        } else System.out.println("All students graded.");
                         break;
                     case "12":
                         teacherUser.selectAllGradesByCourseTeacher().forEach(System.out::println);
                         if (teacherUser.updateGrade(ObjectInit.updateGrade()))
                             System.out.println("Grade was updated.");
+                        else System.out.println("Grade was not updated.");
                         break;
                     case "13":
                         gradesInTeacherCourses = teacherUser.selectAllGradesByCourseTeacher();

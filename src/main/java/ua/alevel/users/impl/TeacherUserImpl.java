@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ua.alevel.dto.Course;
 import ua.alevel.dto.Grade;
+import ua.alevel.dto.additional.GradeToBeAdded;
 import ua.alevel.dto.additional.GradesInTeacherCourses;
 import ua.alevel.services.CourseService;
 import ua.alevel.services.GradeService;
@@ -19,6 +20,18 @@ public class TeacherUserImpl implements TeacherUser {
     @Override
     public void setTeacherId(int teacherId) {
         this.teacherId = teacherId;
+    }
+
+    @Override
+    public List<Course> selectEndedCourses() {
+        return courseService.selectEndedCourses();
+    }
+
+    @Override
+    public List<GradeToBeAdded> selectNotGradedStudentsCourses(int teacherId) {
+        if (teacherId > 0)
+            return gradeService.selectNotGradedStudentsCourses(teacherId);
+        else return null;
     }
 
     public TeacherUserImpl() {

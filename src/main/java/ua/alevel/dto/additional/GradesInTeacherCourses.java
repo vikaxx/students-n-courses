@@ -162,16 +162,10 @@ public class GradesInTeacherCourses implements Table {
     public String toString() {
         return "GradesInTeacherCourses{" +
                 "gradeId=" + gradeId +
-                ", studentCourseId=" + studentCourseId +
                 ", mark=" + mark +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", courseName='" + courseName + '\'' +
-                ", startDate=" + startDate +
-                ", duration=" + duration +
-                ", teacherId=" + teacherId +
-                ", themeId=" + themeId +
-                ", isBanned=" + isBanned +
                 '}';
     }
 }

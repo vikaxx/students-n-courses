@@ -33,4 +33,8 @@ public interface CourseService {
     List<Course> selectStartedCoursesByStudent(int studentId);
 
     List<Course> selectEndedCoursesByStudent(int studentId);
+
+    List<Course> selectNotStartedCourses();
+
+    List<Course> selectEndedCourses();
 }

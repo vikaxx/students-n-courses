@@ -81,4 +81,9 @@ public class StudentUserImpl implements StudentUser {
             return courseService.selectEndedCoursesByStudent(studentId);
         else return null;
     }
+
+    @Override
+    public List<Course> selectNotStartedCourses() {
+        return courseService.selectNotStartedCourses();
+    }
 }

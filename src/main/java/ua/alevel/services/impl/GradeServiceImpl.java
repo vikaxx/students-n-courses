@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.alevel.dao.GradeDao;
 import ua.alevel.dto.Grade;
+import ua.alevel.dto.additional.GradeToBeAdded;
 import ua.alevel.dto.additional.GradesInTeacherCourses;
 import ua.alevel.services.GradeService;
 
@@ -37,5 +38,10 @@ public class GradeServiceImpl implements GradeService {
         if (teacherId > 0)
             return gradeDao.selectAllGradesByCourseTeacher(teacherId);
         else return null;
+    }
+
+    @Override
+    public List<GradeToBeAdded> selectNotGradedStudentsCourses(int teacherId) {
+        return gradeDao.selectNotGradedStudentsCourses(teacherId);
     }
 }
