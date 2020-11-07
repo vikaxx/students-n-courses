@@ -204,7 +204,7 @@ public class CourseDaoImpl extends TableDaoImpl implements CourseDao {
             ps.setInt(1, courseId);
             ps.executeUpdate();
 
-        }  catch (SQLIntegrityConstraintViolationException e) {
+        } catch (SQLIntegrityConstraintViolationException e) {
             return null;
         } catch (SQLException e) {
             LOG.error("SQL Error", e);
@@ -336,21 +336,32 @@ public class CourseDaoImpl extends TableDaoImpl implements CourseDao {
     }
 
     @Override
-    public List<Course> selectNotStartedCourses() {
-        List<Course> courses = selectAllCourses();
-        List<Course> notStarted = new ArrayList<>();
+    public List<Course> selectNotStartedCourses(int exceptStudentId) {
         java.util.Date date = new java.util.Date();
         Calendar today = Calendar.getInstance();
         today.setTime(date);
 
-        for (Course current : courses) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(current.getStartDate());
-            if (calendar.after(today)) { // не начался
-                notStarted.add(current);
+        List<Course> courses = new ArrayList<>();
+        try (final Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement("Select c.* from course c where " +
+                     "c.id not in (SELECT c.id FROM course c JOIN studentsCourse sc " +
+                     "ON c.id = sc.courseId JOIN student s ON s.id = sc.studentId where s.id = ?) \n")) {
+            statement.setInt(1, exceptStudentId);
+            final ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                Course current = new Course().mapResultSetToTableObject(resultSet);
+
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTime(current.getStartDate());
+                if (calendar.after(today)) {
+                    courses.add(current);
+                }
             }
+        } catch (SQLException e) {
+            LOG.error("SQL error: ", e);
         }
-        return notStarted;
+        return courses;
     }
 
     @Override

@@ -162,9 +162,12 @@ public class MenuImpl implements Menu {
                 switch (input) {
                     case "10":
                         if (!isBanned) {
-                            courseService.selectNotStartedCourses().forEach(System.out::println);
-                            if (studentUser.goToNewCourse(Input.inputCourseId()))
-                                System.out.println("New course was added.");
+                            courses = studentUser.selectNotStartedCourses(id);
+                            courses.forEach(System.out::println);
+                            if (!courses.isEmpty()) {
+                                if (studentUser.goToNewCourse(Input.inputCourseId()))
+                                    System.out.println("New course was added.");
+                            } else System.out.println("No new courses.");
                         } else System.out.println("Unfortunately you were blocked.");
                         break;
                     case "11":
@@ -228,10 +231,13 @@ public class MenuImpl implements Menu {
                         } else System.out.println("All students graded.");
                         break;
                     case "12":
-                        teacherUser.selectAllGradesByCourseTeacher().forEach(System.out::println);
-                        if (teacherUser.updateGrade(ObjectInit.updateGrade()))
-                            System.out.println("Grade was updated.");
-                        else System.out.println("Grade was not updated.");
+                        gradesInTeacherCourses = teacherUser.selectAllGradesByCourseTeacher();
+                        gradesInTeacherCourses.forEach(System.out::println);
+                        if (!gradesInTeacherCourses.isEmpty()) {
+                            if (teacherUser.updateGrade(ObjectInit.updateGrade()))
+                                System.out.println("Grade was updated.");
+                            else System.out.println("Grade was not updated.");
+                        } else System.out.println("No grades to update.");
                         break;
                     case "13":
                         gradesInTeacherCourses = teacherUser.selectAllGradesByCourseTeacher();

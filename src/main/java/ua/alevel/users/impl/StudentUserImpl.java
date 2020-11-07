@@ -83,7 +83,7 @@ public class StudentUserImpl implements StudentUser {
     }
 
     @Override
-    public List<Course> selectNotStartedCourses() {
-        return courseService.selectNotStartedCourses();
+    public List<Course> selectNotStartedCourses(int exceptStudentId) {
+        return courseService.selectNotStartedCourses(exceptStudentId);
     }
 }

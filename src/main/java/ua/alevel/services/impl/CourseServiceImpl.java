@@ -117,8 +117,8 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public List<Course> selectNotStartedCourses() {
-        return courseDao.selectNotStartedCourses();
+    public List<Course> selectNotStartedCourses(int exceptStudentId) {
+        return courseDao.selectNotStartedCourses(exceptStudentId);
     }
 
     @Override

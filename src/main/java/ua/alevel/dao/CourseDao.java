@@ -35,7 +35,7 @@ public interface CourseDao {
 
     List<Course> selectEndedCoursesByStudent(int studentId);
 
-    List<Course> selectNotStartedCourses();
+    List<Course> selectNotStartedCourses(int exceptStudentId);
 
     List<Course> selectEndedCourses();
 }

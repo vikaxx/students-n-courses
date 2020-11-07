@@ -18,6 +18,6 @@ public interface StudentUser {
 
     List<Course> selectEndedCoursesByStudent();
 
-    List<Course> selectNotStartedCourses();
+    List<Course> selectNotStartedCourses(int exceptStudentId);
 
 }
