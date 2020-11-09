@@ -19,7 +19,7 @@ public class CourseDaoImpl extends TableDaoImpl implements CourseDao {
     private static final Logger LOG = LoggerFactory.getLogger(CourseDaoImpl.class);
     private DataSource dataSource;
 
-    @Autowired // достать поле из конструктора который предоставляет спринг
+    @Autowired
     public CourseDaoImpl(DataSource dataSource) {
         this.dataSource = dataSource;
     }
@@ -85,7 +85,7 @@ public class CourseDaoImpl extends TableDaoImpl implements CourseDao {
         return courses;
     }
 
-    @Override ////// добавить сущность курс + кол-во его студентов
+    @Override
     public List<CourseWithStudentsAmount> selectCoursesSortedByStudentsQuantity(String orderByDirection) {
         List<CourseWithStudentsAmount> courses = new ArrayList<>();
         try (final Connection connection = dataSource.getConnection();

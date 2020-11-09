@@ -26,7 +26,7 @@ public class StudentUserImpl implements StudentUser {
     }
 
     @Override
-    public boolean isStudentBanned(int studentId) {
+    public boolean isStudentBanned() {
         return studentService.isStudentBanned(studentId);
     }
 
@@ -83,7 +83,7 @@ public class StudentUserImpl implements StudentUser {
     }
 
     @Override
-    public List<Course> selectNotStartedCourses(int exceptStudentId) {
-        return courseService.selectNotStartedCourses(exceptStudentId);
+    public List<Course> selectNotStartedCourses() {
+        return courseService.selectNotStartedCourses(studentId);
     }
 }

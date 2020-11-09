@@ -20,7 +20,7 @@ public class ThemeDaoImpl implements ThemeDao {
     private static final Logger LOG = LoggerFactory.getLogger(ThemeDaoImpl.class);
     private DataSource dataSource;
 
-    @Autowired // достать поле из конструктора который предоставляет спринг
+    @Autowired
     public ThemeDaoImpl(DataSource dataSource) {
         this.dataSource = dataSource;
     }

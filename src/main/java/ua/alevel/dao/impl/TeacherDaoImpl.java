@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ua.alevel.dao.TeacherDao;
 import ua.alevel.datasource.DataSource;
-import ua.alevel.dto.Course;
 import ua.alevel.dto.Teacher;
 
 import java.sql.Connection;
@@ -21,7 +20,7 @@ public class TeacherDaoImpl implements TeacherDao {
     private static final Logger LOG = LoggerFactory.getLogger(TeacherDaoImpl.class);
     private DataSource dataSource;
 
-    @Autowired // достать поле из конструктора который предоставляет спринг
+    @Autowired
     public TeacherDaoImpl(DataSource dataSource) {
         this.dataSource = dataSource;
     }

@@ -97,10 +97,14 @@ public class MenuImpl implements Menu {
                             System.out.println("Teacher was added.");
                         break;
                     case "11":
+                        teacherService.selectAllTeachers().forEach(System.out::println);
+                        themeService.selectAllThemes().forEach(System.out::println);
                         if (adminUser.addNewCourse(ObjectInit.newCourse()))
                             System.out.println("Course was added");
                         break;
                     case "12":
+                        teacherService.selectAllTeachers().forEach(System.out::println);
+                        themeService.selectAllThemes().forEach(System.out::println);
                         abstractUser.selectAllCourses().forEach(System.out::println);
                         if (adminUser.updateCourse(ObjectInit.updateCourse()))
                             System.out.println("Course was updated");
@@ -145,7 +149,7 @@ public class MenuImpl implements Menu {
 
     private void mainMenuStudent(int id) {
         studentUser.setStudentId(id);
-        boolean isBanned = studentUser.isStudentBanned(id);
+        boolean isBanned = studentUser.isStudentBanned();
 
         try {
             while (true) {
@@ -162,7 +166,7 @@ public class MenuImpl implements Menu {
                 switch (input) {
                     case "10":
                         if (!isBanned) {
-                            courses = studentUser.selectNotStartedCourses(id);
+                            courses = studentUser.selectNotStartedCourses();
                             courses.forEach(System.out::println);
                             if (!courses.isEmpty()) {
                                 if (studentUser.goToNewCourse(Input.inputCourseId()))
@@ -222,7 +226,7 @@ public class MenuImpl implements Menu {
                         printCourses(courses);
                         break;
                     case "11":
-                        gradeToBeAddeds = teacherUser.selectNotGradedStudentsCourses(id);
+                        gradeToBeAddeds = teacherUser.selectNotGradedStudentsCourses();
                         if (!gradeToBeAddeds.isEmpty()) {
                             gradeToBeAddeds.forEach(System.out::println);
                             if (teacherUser.addGrade(ObjectInit.newGrade())) {

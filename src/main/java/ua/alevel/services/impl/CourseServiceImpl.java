@@ -7,7 +7,6 @@ import ua.alevel.dto.Course;
 import ua.alevel.dto.additional.CourseWithStudentsAmount;
 import ua.alevel.services.CourseService;
 
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 @Service

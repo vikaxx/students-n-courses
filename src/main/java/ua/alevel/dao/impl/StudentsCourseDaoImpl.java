@@ -17,7 +17,7 @@ public class StudentsCourseDaoImpl implements StudentsCourseDao {
     private static final Logger LOG = LoggerFactory.getLogger(StudentsCourseDaoImpl.class);
     private DataSource dataSource;
 
-    @Autowired // достать поле из конструктора который предоставляет спринг
+    @Autowired
     public StudentsCourseDaoImpl(DataSource dataSource) {
         this.dataSource = dataSource;
     }

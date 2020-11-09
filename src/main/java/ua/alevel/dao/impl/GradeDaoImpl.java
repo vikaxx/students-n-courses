@@ -20,7 +20,7 @@ public class GradeDaoImpl implements GradeDao {
     private static final Logger LOG = LoggerFactory.getLogger(GradeDaoImpl.class);
     private DataSource dataSource;
 
-    @Autowired // достать поле из конструктора который предоставляет спринг
+    @Autowired
     public GradeDaoImpl(DataSource dataSource) {
         this.dataSource = dataSource;
     }

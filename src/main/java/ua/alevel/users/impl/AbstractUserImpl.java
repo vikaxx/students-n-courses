@@ -1,8 +1,6 @@
 package ua.alevel.users.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import ua.alevel.dto.Course;
 import ua.alevel.dto.additional.CourseWithStudentsAmount;

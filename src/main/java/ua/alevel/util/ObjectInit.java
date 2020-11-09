@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ua.alevel.dto.Course;
 import ua.alevel.dto.Grade;
-import ua.alevel.dto.StudentsCourse;
 import ua.alevel.dto.Teacher;
 
 import java.io.BufferedReader;
@@ -47,7 +46,14 @@ public class ObjectInit {
             course.setName(input);
 
             System.out.print("Input duration: ");
-            course.setDuration(Integer.parseInt(reader.readLine()));
+            int duration = Integer.parseInt(reader.readLine());
+
+            if (duration < 1) {
+                System.out.println("Incorrect values. Duration cannot be less than 1.");
+                return newCourse();
+            }
+
+            course.setDuration(duration);
 
             System.out.print("Input teacher id: ");
             course.setTeacherId(Integer.parseInt(reader.readLine()));
@@ -96,7 +102,14 @@ public class ObjectInit {
             course.setName(input);
 
             System.out.print("Input duration: ");
-            course.setDuration(Integer.parseInt(reader.readLine()));
+            int duration = Integer.parseInt(reader.readLine());
+
+            if (duration < 1) {
+                System.out.println("Incorrect values. Duration cannot be less than 1.");
+                return updateCourse();
+            }
+
+            course.setDuration(duration);
 
             System.out.print("Input teacher id: ");
             course.setTeacherId(Integer.parseInt(reader.readLine()));
@@ -111,7 +124,7 @@ public class ObjectInit {
         } catch (IOException e) {
             System.out.println("Incorrect values.");
             return updateCourse();
-        }  catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             System.out.println("Incorrect value.");
             return updateCourse();
         }
@@ -131,7 +144,7 @@ public class ObjectInit {
         } catch (IOException e) {
             System.out.println("Incorrect values.");
             return newGrade();
-        }  catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             System.out.println("Incorrect value.");
             return newGrade();
         }
@@ -152,7 +165,7 @@ public class ObjectInit {
         } catch (IOException e) {
             System.out.println("Incorrect values.");
             return updateGrade();
-        }  catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             System.out.println("Incorrect value.");
             return updateGrade();
         }

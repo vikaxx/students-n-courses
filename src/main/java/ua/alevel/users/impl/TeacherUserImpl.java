@@ -23,12 +23,7 @@ public class TeacherUserImpl implements TeacherUser {
     }
 
     @Override
-    public List<Course> selectEndedCourses() {
-        return courseService.selectEndedCourses();
-    }
-
-    @Override
-    public List<GradeToBeAdded> selectNotGradedStudentsCourses(int teacherId) {
+    public List<GradeToBeAdded> selectNotGradedStudentsCourses() {
         if (teacherId > 0)
             return gradeService.selectNotGradedStudentsCourses(teacherId);
         else return null;

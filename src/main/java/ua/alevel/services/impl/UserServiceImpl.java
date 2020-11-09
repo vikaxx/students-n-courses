@@ -1,8 +1,6 @@
 package ua.alevel.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import ua.alevel.dao.UserDao;
 import ua.alevel.dto.User;

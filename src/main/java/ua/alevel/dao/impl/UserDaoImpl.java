@@ -18,7 +18,7 @@ public class UserDaoImpl implements UserDao {
     private static final Logger LOG = LoggerFactory.getLogger(UserDaoImpl.class);
     private DataSource dataSource;
 
-    @Autowired // достать поле из конструктора который предоставляет спринг
+    @Autowired
     public UserDaoImpl(DataSource dataSource) {
         this.dataSource = dataSource;
     }

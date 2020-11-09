@@ -17,7 +17,7 @@ public class TableDaoImpl implements TableDao {
     private static final Logger LOG = LoggerFactory.getLogger(TableDaoImpl.class);
     private DataSource dataSource;
 
-    @Autowired // достать поле из конструктора который предоставляет спринг
+    @Autowired
     public TableDaoImpl(DataSource dataSource) {
         this.dataSource = dataSource;
     }
